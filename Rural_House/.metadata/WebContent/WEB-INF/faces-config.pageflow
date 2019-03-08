@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15283854216300" configfile="/Rural_House/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="Rural_Houses.xhtml" x="228" y="192" id="pf15284942798700" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" outlinks="pf15284942798701 pf15284942798702" inlinks="pf15284942798703 pf15284942798704" path="/Rural_Houses.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Query_Availability.xhtml" x="588" y="48" id="pf15284942798705" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf15284942798703" inlinks="pf15284942798701" path="/Query_Availability.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Set_Availability.xhtml" x="611" y="276" id="pf15284942798706" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf15284942798704" inlinks="pf15284942798702" path="/Set_Availability.xhtml"/>
+  <links id="pf15284942798701" target="pf15284942798705" source="pf15284942798700" outcome="Query"/>
+  <links id="pf15284942798702" target="pf15284942798706" source="pf15284942798700" outcome="Set"/>
+  <links id="pf15284942798703" target="pf15284942798700" source="pf15284942798705" outcome="Rural"/>
+  <links id="pf15284942798704" target="pf15284942798700" source="pf15284942798706" outcome="Rural"/>
+</pageflow:Pageflow>

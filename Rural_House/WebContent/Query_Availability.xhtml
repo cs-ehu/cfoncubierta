@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:o="http://omnifaces.org/ui"
+    xmlns:of="http://omnifaces.org/functions">
+    
+<h:head>
+
+	<meta charset="ISO-8859-1" />
+	<title>Query_Availability</title>
+	
+	<style>
+		
+		#main {
+		
+			text-align: center;
+			align-content:center;
+			border-style: solid;
+			background-color: #F4F6F6;
+			
+		}
+		
+		.button {
+		
+			color: white;
+			border-style: solid;
+			background-color: #566573;
+			
+		}
+		
+	</style>
+
+	
+</h:head>
+
+<h:body>
+
+	<h:form id="main" style="width: 500px; "><br />
+	
+		<span>Rural house code:</span>
+		<h:selectOneMenu id="select1" value="#{Query.houseCode}" converter="omnifaces.SelectItemsConverter">
+			<f:selectItems value="#{Query.houses}"/>
+		</h:selectOneMenu><br /><br />
+		
+		<span>First Day (MM/dd/yyyy):</span>
+		<p:calendar value="#{Query.day}" pattern="MM/dd/yyyy" /><br /><br />
+		
+		<span>Number of nights:</span>
+		<h:inputText style="height: 30px; " value="#{Query.numNights}">
+			<f:validateLongRange minimum="1"/>	
+		</h:inputText><br /><br />
+		
+		<p:dataTable value ="#{Query.offers}" var="offer" rowKey="#{offer.offerNumber}" selectionMode="single"
+			selection="#{Query.bookOffer}">
+			
+			<p:column>
+			<f:facet name="header">Offer#</f:facet>
+			#{offer.offerNumber}
+			</p:column>
+			
+			<p:column>
+			<f:facet name="header">Rural House</f:facet>
+			#{offer.ruralHouse}
+			</p:column>
+			<p:column>
+			<f:facet name="header">First Day</f:facet>
+			#{offer.firstDay}
+			</p:column>
+			<p:column>
+			<f:facet name="header">Last Day</f:facet>
+			#{offer.lastDay}
+			</p:column><p:column>
+			<f:facet name="header">Price</f:facet>
+			#{offer.price}
+			</p:column>	
+			
+			</p:dataTable>
+		
+		<br />
+
+		<span id="text">Select an offer if you want to book</span><br /><br />
+		
+		<h:commandButton class="button" value="Accept" action="#{Query.searchOffers}" style="width: 100px; "></h:commandButton>
+		<h:commandButton class="button" value="Close" immediate="true" action="Rural" style="width: 100px; ">
+			<f:actionListener binding="#{Query.borrar()}"></f:actionListener>
+		</h:commandButton>
+		<h:commandButton class="button" value="Book" action="#{Query.book}" style="width: 100px; ">
+		</h:commandButton>
+		<br /><br />
+
+	<p:dialog header="Information:" widgetVar="dlg1" minHeight="40"  resizable="false" visible="#{Query.showError}">
+	 <h:outputText value="#{Query.error}" />
+	 <p:ajax event="close" listener="#{Query.errorFalse()}" />
+	</p:dialog>
+	
+	<h:messages autoUpdate="true" style="color:red"/>
+
+	</h:form>
+	
+</h:body>
+</html>

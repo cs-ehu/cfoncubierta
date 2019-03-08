@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta charset="ISO-8859-1"/>
+<title>Set_Availability</title>
+<style type="text/css">	
+
+#main {
+
+	text-align: center;
+	border-style: solid;
+	background-color: #F4F6F6;
+	
+}
+
+.button {
+
+	color: white;
+	border-style: solid;
+	background-color: #566573;
+	
+}
+
+</style>
+</h:head>
+
+<h:body>
+
+	<h:form id="main" style="width:500px;">
+		<br />
+		<span>List of houses:</span>
+
+		<h:selectOneMenu id="selector" value="#{Set.houseCode}" converter="omnifaces.SelectItemsConverter">
+			<f:selectItems value="#{Set.houses}"/>
+		</h:selectOneMenu>
+		/
+		<span>Price:</span>
+		<h:inputText id ="price" value ="#{Set.price}" style="height: 30px; width:100px; "></h:inputText><br /><br />
+		
+		<span>First Day (MM/dd/yyyy):</span>
+		<p:calendar value="#{Set.firstDay}" pattern="MM/dd/yyyy" /><br />
+		
+		<span>Last Day (MM/dd/yyyy):</span>
+		<p:calendar value="#{Set.lastDay}" pattern="MM/dd/yyyy" /><br /><br />
+		
+		<h:commandButton class="button" value="Accept" action="#{Set.createOffer()}" style="width: 100px; "></h:commandButton>
+		<h:commandButton class="button" value="Close" immediate="true" action="Rural" style="width: 100px; ">
+			<f:actionListener binding="#{Set.borrar()}"></f:actionListener>
+		</h:commandButton><br />		
+		
+<p:dialog header="Information:" widgetVar="dlg1" minHeight="40"  resizable="false" visible="#{Set.showError}">
+ <h:outputText value="#{Set.error}" />
+ <p:ajax event="close" listener="#{Set.errorFalse()}" />
+</p:dialog>
+
+<h:messages autoUpdate="true" style="color:red"/>
+
+		<br />
+	</h:form>
+	
+</h:body>
+</html>

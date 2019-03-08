@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<meta charset="ISO-8859-1" />
+<title>Rural_Houses</title>
+<style type="text/css">
+
+#main {
+
+	text-align: center;
+	border-style: solid;
+	background-color: #F4F6F6;
+	
+}
+
+.button {
+
+	color: white;
+	border-style: solid;
+	background-color: #566573;
+}
+
+</style>
+</h:head>
+<h:body>
+
+	<div id = "main" style="width: 500px; height: 264px">
+
+		<div style= "postion:relative; top:90px; font-size: 24px; height: 62px"><br />Select option:</div>
+		
+		<h:form style="position:relative; top:50px;">
+		
+			<h:commandButton class="button" value="Set avalilability" action="Set" style="width: 475px; height: 70px; "></h:commandButton>
+			<h:commandButton class="button" value="Query availability" action="Query" style="width: 475px; height: 70px; "></h:commandButton>
+			<h:messages> </h:messages>
+		</h:form>
+	
+	</div>
+	
+</h:body>
+</html>
