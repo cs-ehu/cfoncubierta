@@ -1,0 +1,260 @@
+\hypertarget{classdataAccess_1_1HibernateDataAccess}{}\section{data\+Access.\+Hibernate\+Data\+Access Class Reference}
+\label{classdataAccess_1_1HibernateDataAccess}\index{dataAccess.HibernateDataAccess@{dataAccess.HibernateDataAccess}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdomain_1_1Offer}{Offer}} \mbox{\hyperlink{classdataAccess_1_1HibernateDataAccess_a2d226cc2032db6a4522fc6e172315480}{create\+Offer}} (\mbox{\hyperlink{classdomain_1_1RuralHouse}{Rural\+House}} rural\+House, Date first\+Day, Date last\+Day, float price)
+\item 
+Vector$<$ \mbox{\hyperlink{classdomain_1_1RuralHouse}{Rural\+House}} $>$ \mbox{\hyperlink{classdataAccess_1_1HibernateDataAccess_a3e70561f64924c0a6c5a1edfbc5528da}{get\+All\+Rural\+Houses}} ()
+\item 
+Vector$<$ \mbox{\hyperlink{classdomain_1_1Offer}{Offer}} $>$ \mbox{\hyperlink{classdataAccess_1_1HibernateDataAccess_a60f1f7e00fb7ccec7fbb799e8a302295}{get\+Offers}} (\mbox{\hyperlink{classdomain_1_1RuralHouse}{Rural\+House}} rh, Date first\+Day, Date last\+Day)
+\item 
+boolean \mbox{\hyperlink{classdataAccess_1_1HibernateDataAccess_aae72706f749c3cb823d6002f979835c7}{exists\+Overlapping\+Offer}} (\mbox{\hyperlink{classdomain_1_1RuralHouse}{Rural\+House}} rh, Date first\+Day, Date last\+Day)  throws Overlapping\+Offer\+Exists  	
+\item 
+void \mbox{\hyperlink{classdataAccess_1_1HibernateDataAccess_a16a54ece6133abc98eae6b61daa9d4db}{book\+Offer}} (\mbox{\hyperlink{classdomain_1_1Offer}{Offer}} o)
+\item 
+boolean \mbox{\hyperlink{classdataAccess_1_1HibernateDataAccess_a20de01b8c85e851ca310123cb7e6037d}{coincide}} (\mbox{\hyperlink{classdomain_1_1RuralHouse}{Rural\+House}} house\+Code, Date first\+Day, Date last\+Day)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 16 of file Hibernate\+Data\+Access.\+java.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classdataAccess_1_1HibernateDataAccess_a16a54ece6133abc98eae6b61daa9d4db}\label{classdataAccess_1_1HibernateDataAccess_a16a54ece6133abc98eae6b61daa9d4db}} 
+\index{dataAccess.HibernateDataAccess@{dataAccess.HibernateDataAccess}!bookOffer@{bookOffer}}
+\index{bookOffer@{bookOffer}!dataAccess.HibernateDataAccess@{dataAccess.HibernateDataAccess}}
+\subsubsection{\texorpdfstring{bookOffer()}{bookOffer()}}
+{\footnotesize\ttfamily void data\+Access.\+Hibernate\+Data\+Access.\+book\+Offer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdomain_1_1Offer}{Offer}}}]{o }\end{DoxyParamCaption})}
+
+
+
+Definition at line 87 of file Hibernate\+Data\+Access.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{88     \{}
+\DoxyCodeLine{89         Session session = HibernateUtil.getSessionFactory().getCurrentSession();}
+\DoxyCodeLine{90         session.beginTransaction();}
+\DoxyCodeLine{91         \textcolor{keywordtype}{int} offerNumber = o.getOfferNumber();}
+\DoxyCodeLine{92         session.createQuery(\textcolor{stringliteral}{"update Offer set book = 'YES' where offerNumber = '"} + offerNumber + \textcolor{stringliteral}{"'"}).executeUpdate();}
+\DoxyCodeLine{93         session.getTransaction().commit();}
+\DoxyCodeLine{94     \}}
+
+\end{DoxyCode}
+
+
+References domain.\+Offer.\+get\+Offer\+Number(), and modelo.\+dominio.\+Hibernate\+Util.\+get\+Session\+Factory().
+
+
+
+Referenced by business\+Logic.\+Facade\+Implementation\+W\+S.\+book\+Offer().
+
+\mbox{\Hypertarget{classdataAccess_1_1HibernateDataAccess_a20de01b8c85e851ca310123cb7e6037d}\label{classdataAccess_1_1HibernateDataAccess_a20de01b8c85e851ca310123cb7e6037d}} 
+\index{dataAccess.HibernateDataAccess@{dataAccess.HibernateDataAccess}!coincide@{coincide}}
+\index{coincide@{coincide}!dataAccess.HibernateDataAccess@{dataAccess.HibernateDataAccess}}
+\subsubsection{\texorpdfstring{coincide()}{coincide()}}
+{\footnotesize\ttfamily boolean data\+Access.\+Hibernate\+Data\+Access.\+coincide (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdomain_1_1RuralHouse}{Rural\+House}}}]{house\+Code,  }\item[{Date}]{first\+Day,  }\item[{Date}]{last\+Day }\end{DoxyParamCaption})}
+
+
+
+Definition at line 96 of file Hibernate\+Data\+Access.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{97     \{}
+\DoxyCodeLine{98         Session session = HibernateUtil.getSessionFactory().getCurrentSession();}
+\DoxyCodeLine{99         session.beginTransaction();}
+\DoxyCodeLine{100         List<Offer> query = session.createQuery(\textcolor{stringliteral}{"from Offer where houseNumber='"} + houseCode + \textcolor{stringliteral}{"'"}).list();}
+\DoxyCodeLine{101         \textcolor{keywordtype}{int} cont = 0;}
+\DoxyCodeLine{102         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < query.size(); i++) }
+\DoxyCodeLine{103         \{}
+\DoxyCodeLine{104             \textcolor{keywordflow}{if} (((firstDay.compareTo(query.get(i).getFirstDay()) >= 0)}
+\DoxyCodeLine{105                     \&\& (lastDay.compareTo(query.get(i).getLastDay()) <= 0))}
+\DoxyCodeLine{106                     || ((firstDay.compareTo(query.get(i).getFirstDay()) <= 0)}
+\DoxyCodeLine{107                             \&\& (lastDay.compareTo(query.get(i).getLastDay()) >= 0))}
+\DoxyCodeLine{108                     || ((firstDay.compareTo(query.get(i).getFirstDay()) >= 0)}
+\DoxyCodeLine{109                             \&\& (firstDay.compareTo(query.get(i).getLastDay()) <= 0))) }
+\DoxyCodeLine{110             \{}
+\DoxyCodeLine{111                 cont++;}
+\DoxyCodeLine{112             \}}
+\DoxyCodeLine{113         \}}
+\DoxyCodeLine{114         \textcolor{keywordflow}{if} (cont > 0) }
+\DoxyCodeLine{115         \{}
+\DoxyCodeLine{116             session.getTransaction().commit();}
+\DoxyCodeLine{117             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{118         \} }
+\DoxyCodeLine{119         \textcolor{keywordflow}{else} }
+\DoxyCodeLine{120         \{}
+\DoxyCodeLine{121             session.getTransaction().commit();}
+\DoxyCodeLine{122             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{123         \}}
+\DoxyCodeLine{124     \}}
+
+\end{DoxyCode}
+
+
+References modelo.\+dominio.\+Hibernate\+Util.\+get\+Session\+Factory().
+
+
+
+Referenced by business\+Logic.\+Facade\+Implementation\+W\+S.\+coincide().
+
+\mbox{\Hypertarget{classdataAccess_1_1HibernateDataAccess_a2d226cc2032db6a4522fc6e172315480}\label{classdataAccess_1_1HibernateDataAccess_a2d226cc2032db6a4522fc6e172315480}} 
+\index{dataAccess.HibernateDataAccess@{dataAccess.HibernateDataAccess}!createOffer@{createOffer}}
+\index{createOffer@{createOffer}!dataAccess.HibernateDataAccess@{dataAccess.HibernateDataAccess}}
+\subsubsection{\texorpdfstring{createOffer()}{createOffer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classdomain_1_1Offer}{Offer}} data\+Access.\+Hibernate\+Data\+Access.\+create\+Offer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdomain_1_1RuralHouse}{Rural\+House}}}]{rural\+House,  }\item[{Date}]{first\+Day,  }\item[{Date}]{last\+Day,  }\item[{float}]{price }\end{DoxyParamCaption})}
+
+
+
+Definition at line 18 of file Hibernate\+Data\+Access.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{19     \{}
+\DoxyCodeLine{20         Session session = HibernateUtil.getSessionFactory().getCurrentSession();}
+\DoxyCodeLine{21         session.beginTransaction();}
+\DoxyCodeLine{22         \textcolor{keywordflow}{try} }
+\DoxyCodeLine{23         \{}
+\DoxyCodeLine{24             Integer houseCode = ruralHouse.getHouseNumber();}
+\DoxyCodeLine{25             List<RuralHouse> query = session.createQuery(\textcolor{stringliteral}{"from RuralHouse where houseNumber='"} + houseCode + \textcolor{stringliteral}{"'"})}
+\DoxyCodeLine{26                     .list();}
+\DoxyCodeLine{27             RuralHouse rh = query.get(0);}
+\DoxyCodeLine{28             Offer o = rh.createOffer(firstDay, lastDay, price);}
+\DoxyCodeLine{29             session.save(o);}
+\DoxyCodeLine{30             session.getTransaction().commit();}
+\DoxyCodeLine{31             \textcolor{keywordflow}{return} o;}
+\DoxyCodeLine{32         \} }
+\DoxyCodeLine{33         \textcolor{keywordflow}{catch} (Exception e) }
+\DoxyCodeLine{34         \{}
+\DoxyCodeLine{35             \textcolor{keywordflow}{return} \textcolor{keyword}{null};}
+\DoxyCodeLine{36         \}}
+\DoxyCodeLine{37     \}}
+
+\end{DoxyCode}
+
+
+References domain.\+Rural\+House.\+create\+Offer(), domain.\+Rural\+House.\+get\+House\+Number(), and modelo.\+dominio.\+Hibernate\+Util.\+get\+Session\+Factory().
+
+
+
+Referenced by business\+Logic.\+Facade\+Implementation\+W\+S.\+create\+Offer().
+
+\mbox{\Hypertarget{classdataAccess_1_1HibernateDataAccess_aae72706f749c3cb823d6002f979835c7}\label{classdataAccess_1_1HibernateDataAccess_aae72706f749c3cb823d6002f979835c7}} 
+\index{dataAccess.HibernateDataAccess@{dataAccess.HibernateDataAccess}!existsOverlappingOffer@{existsOverlappingOffer}}
+\index{existsOverlappingOffer@{existsOverlappingOffer}!dataAccess.HibernateDataAccess@{dataAccess.HibernateDataAccess}}
+\subsubsection{\texorpdfstring{existsOverlappingOffer()}{existsOverlappingOffer()}}
+{\footnotesize\ttfamily boolean data\+Access.\+Hibernate\+Data\+Access.\+exists\+Overlapping\+Offer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdomain_1_1RuralHouse}{Rural\+House}}}]{rh,  }\item[{Date}]{first\+Day,  }\item[{Date}]{last\+Day }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classexceptions_1_1OverlappingOfferExists}{Overlapping\+Offer\+Exists}}}
+
+
+
+Definition at line 67 of file Hibernate\+Data\+Access.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{68     \{}
+\DoxyCodeLine{69         Session session = HibernateUtil.getSessionFactory().getCurrentSession();}
+\DoxyCodeLine{70         session.beginTransaction();}
+\DoxyCodeLine{71         \textcolor{keywordflow}{try} }
+\DoxyCodeLine{72         \{}
+\DoxyCodeLine{73             Integer houseCode = rh.getHouseNumber();}
+\DoxyCodeLine{74             List<RuralHouse> query = session.createQuery(\textcolor{stringliteral}{"from RuralHouse where houseNumber='"} + houseCode + \textcolor{stringliteral}{"'"})}
+\DoxyCodeLine{75                     .list();}
+\DoxyCodeLine{76             RuralHouse rhn = query.get(0);}
+\DoxyCodeLine{77             \textcolor{keywordflow}{if} (rhn.overlapsWith(firstDay, lastDay) != \textcolor{keyword}{null})}
+\DoxyCodeLine{78                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{79         \} }
+\DoxyCodeLine{80         \textcolor{keywordflow}{catch} (Exception e) }
+\DoxyCodeLine{81         \{}
+\DoxyCodeLine{82             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{83         \}}
+\DoxyCodeLine{84         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{85     \}}
+
+\end{DoxyCode}
+
+
+References modelo.\+dominio.\+Hibernate\+Util.\+get\+Session\+Factory(), and domain.\+Rural\+House.\+overlaps\+With().
+
+
+
+Referenced by business\+Logic.\+Facade\+Implementation\+W\+S.\+create\+Offer().
+
+\mbox{\Hypertarget{classdataAccess_1_1HibernateDataAccess_a3e70561f64924c0a6c5a1edfbc5528da}\label{classdataAccess_1_1HibernateDataAccess_a3e70561f64924c0a6c5a1edfbc5528da}} 
+\index{dataAccess.HibernateDataAccess@{dataAccess.HibernateDataAccess}!getAllRuralHouses@{getAllRuralHouses}}
+\index{getAllRuralHouses@{getAllRuralHouses}!dataAccess.HibernateDataAccess@{dataAccess.HibernateDataAccess}}
+\subsubsection{\texorpdfstring{getAllRuralHouses()}{getAllRuralHouses()}}
+{\footnotesize\ttfamily Vector$<$\mbox{\hyperlink{classdomain_1_1RuralHouse}{Rural\+House}}$>$ data\+Access.\+Hibernate\+Data\+Access.\+get\+All\+Rural\+Houses (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 39 of file Hibernate\+Data\+Access.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{40     \{}
+\DoxyCodeLine{41         Session session = HibernateUtil.getSessionFactory().getCurrentSession();}
+\DoxyCodeLine{42         session.beginTransaction();}
+\DoxyCodeLine{43         Vector<RuralHouse> allRuralHouses = \textcolor{keyword}{new} Vector<RuralHouse>();}
+\DoxyCodeLine{44         @SuppressWarnings(\textcolor{stringliteral}{"unchecked"})}
+\DoxyCodeLine{45         List<RuralHouse> query = session.createQuery("from RuralHouse").list();}
+\DoxyCodeLine{46         session.getTransaction().commit();}
+\DoxyCodeLine{47         Iterator<RuralHouse> i = query.iterator();}
+\DoxyCodeLine{48         while (i.hasNext()) }
+\DoxyCodeLine{49         \{}
+\DoxyCodeLine{50             allRuralHouses.add(i.next());}
+\DoxyCodeLine{51         \}}
+\DoxyCodeLine{52         \textcolor{keywordflow}{return} allRuralHouses;}
+\DoxyCodeLine{53     \}}
+
+\end{DoxyCode}
+
+
+References modelo.\+dominio.\+Hibernate\+Util.\+get\+Session\+Factory().
+
+
+
+Referenced by business\+Logic.\+Facade\+Implementation\+W\+S.\+get\+All\+Rural\+Houses().
+
+\mbox{\Hypertarget{classdataAccess_1_1HibernateDataAccess_a60f1f7e00fb7ccec7fbb799e8a302295}\label{classdataAccess_1_1HibernateDataAccess_a60f1f7e00fb7ccec7fbb799e8a302295}} 
+\index{dataAccess.HibernateDataAccess@{dataAccess.HibernateDataAccess}!getOffers@{getOffers}}
+\index{getOffers@{getOffers}!dataAccess.HibernateDataAccess@{dataAccess.HibernateDataAccess}}
+\subsubsection{\texorpdfstring{getOffers()}{getOffers()}}
+{\footnotesize\ttfamily Vector$<$\mbox{\hyperlink{classdomain_1_1Offer}{Offer}}$>$ data\+Access.\+Hibernate\+Data\+Access.\+get\+Offers (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdomain_1_1RuralHouse}{Rural\+House}}}]{rh,  }\item[{Date}]{first\+Day,  }\item[{Date}]{last\+Day }\end{DoxyParamCaption})}
+
+
+
+Definition at line 55 of file Hibernate\+Data\+Access.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{56     \{}
+\DoxyCodeLine{57         Integer houseCode = rh.getHouseNumber();}
+\DoxyCodeLine{58         Session session = HibernateUtil.getSessionFactory().getCurrentSession();}
+\DoxyCodeLine{59         session.beginTransaction();}
+\DoxyCodeLine{60         Vector<Offer> allOffers = \textcolor{keyword}{new} Vector<Offer>();}
+\DoxyCodeLine{61         List<RuralHouse> query = session.createQuery(\textcolor{stringliteral}{"from RuralHouse where houseNumber='"} + houseCode + \textcolor{stringliteral}{"'"}).list();}
+\DoxyCodeLine{62         RuralHouse rh1 = (RuralHouse) query.get(0);}
+\DoxyCodeLine{63         allOffers = rh1.getOffers(firstDay, lastDay);}
+\DoxyCodeLine{64         \textcolor{keywordflow}{return} allOffers;}
+\DoxyCodeLine{65     \}}
+
+\end{DoxyCode}
+
+
+References domain.\+Rural\+House.\+get\+House\+Number(), domain.\+Rural\+House.\+get\+Offers(), and modelo.\+dominio.\+Hibernate\+Util.\+get\+Session\+Factory().
+
+
+
+Referenced by business\+Logic.\+Facade\+Implementation\+W\+S.\+get\+Offers().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/data\+Access/\mbox{\hyperlink{HibernateDataAccess_8java}{Hibernate\+Data\+Access.\+java}}\end{DoxyCompactItemize}

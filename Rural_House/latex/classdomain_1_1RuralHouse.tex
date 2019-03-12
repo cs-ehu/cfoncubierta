@@ -1,0 +1,563 @@
+\hypertarget{classdomain_1_1RuralHouse}{}\section{domain.\+Rural\+House Class Reference}
+\label{classdomain_1_1RuralHouse}\index{domain.RuralHouse@{domain.RuralHouse}}
+
+
+Collaboration diagram for domain.\+Rural\+House\+:
+% FIG 0
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Set$<$ \mbox{\hyperlink{classdomain_1_1Offer}{Offer}} $>$ \mbox{\hyperlink{classdomain_1_1RuralHouse_ab80c8a3e186714dfb11557b626ecfb1c}{get\+Offers}} ()
+\item 
+void \mbox{\hyperlink{classdomain_1_1RuralHouse_a240eebda76fe984b763e8eaa691f3c94}{set\+Offers}} (Set$<$ \mbox{\hyperlink{classdomain_1_1Offer}{Offer}} $>$ \mbox{\hyperlink{classdomain_1_1RuralHouse_ab96f0810763d7df5b3f38622850f941e}{offers}})
+\item 
+\mbox{\hyperlink{classdomain_1_1RuralHouse_a5e1f42ad6b3992bfc5fdece628455552}{Rural\+House}} ()
+\item 
+\mbox{\hyperlink{classdomain_1_1RuralHouse_a1052cfcd781ddfbaf6d5516737e06bf0}{Rural\+House}} (String \mbox{\hyperlink{classdomain_1_1RuralHouse_afdc9d7b70bcc6baa94cae033a5684f0e}{description}}, String \mbox{\hyperlink{classdomain_1_1RuralHouse_a4ac1bd1de58f97487abbcb8dc27a8077}{city}})
+\item 
+Integer \mbox{\hyperlink{classdomain_1_1RuralHouse_a849faba68dc8c0a71ed936bc509f5568}{get\+House\+Number}} ()
+\item 
+void \mbox{\hyperlink{classdomain_1_1RuralHouse_afae7f7702581e18517472b1faa29273d}{set\+House\+Number}} (Integer \mbox{\hyperlink{classdomain_1_1RuralHouse_a1168b2c788d2f3bca3c54eee3b8734cb}{house\+Number}})
+\item 
+String \mbox{\hyperlink{classdomain_1_1RuralHouse_a21b3359aa62984046a4da490fe8895e1}{get\+Description}} ()
+\item 
+void \mbox{\hyperlink{classdomain_1_1RuralHouse_aff9ad2c8f775b473256233e9c26456f1}{set\+Description}} (String \mbox{\hyperlink{classdomain_1_1RuralHouse_afdc9d7b70bcc6baa94cae033a5684f0e}{description}})
+\item 
+String \mbox{\hyperlink{classdomain_1_1RuralHouse_a67a45aa0b441b32d455d58c4a42446f1}{get\+City}} ()
+\item 
+void \mbox{\hyperlink{classdomain_1_1RuralHouse_a04f87e3266ab2b0d9b42bb8f947d6172}{set\+City}} (String \mbox{\hyperlink{classdomain_1_1RuralHouse_a4ac1bd1de58f97487abbcb8dc27a8077}{city}})
+\item 
+\mbox{\hyperlink{classdomain_1_1Offer}{Offer}} \mbox{\hyperlink{classdomain_1_1RuralHouse_a58e17e08a7b28a75bc1b8e3d6ac01764}{create\+Offer}} (Date first\+Day, Date last\+Day, float price)
+\begin{DoxyCompactList}\small\item\em This method creates an offer with a house number, first day, last day and price. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classdomain_1_1RuralHouse_a23272d170821f464d6b07595303c283e}{hash\+Code}} ()
+\item 
+String \mbox{\hyperlink{classdomain_1_1RuralHouse_a2937650ac9e726b75be724d264fa1bee}{to\+String}} ()
+\item 
+boolean \mbox{\hyperlink{classdomain_1_1RuralHouse_a92f3f1fa5d605f34e95f4e4175ef2629}{equals}} (Object obj)
+\item 
+Vector$<$ \mbox{\hyperlink{classdomain_1_1Offer}{Offer}} $>$ \mbox{\hyperlink{classdomain_1_1RuralHouse_abe770c8a0fbcfed83a358d84bacd66f7}{get\+Offers}} (Date first\+Day, Date last\+Day)
+\begin{DoxyCompactList}\small\item\em This method obtains available offers for a concrete house in a certain period. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classdomain_1_1Offer}{Offer}} \mbox{\hyperlink{classdomain_1_1RuralHouse_ac5596b06728d8bf377993088520fbc9e}{overlaps\+With}} (Date first\+Day, Date last\+Day)
+\begin{DoxyCompactList}\small\item\em This method obtains the first offer that overlaps with the provided dates. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Set$<$ \mbox{\hyperlink{classdomain_1_1Offer}{Offer}} $>$ \mbox{\hyperlink{classdomain_1_1RuralHouse_ab96f0810763d7df5b3f38622850f941e}{offers}}
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Integer \mbox{\hyperlink{classdomain_1_1RuralHouse_a1168b2c788d2f3bca3c54eee3b8734cb}{house\+Number}}
+\item 
+String \mbox{\hyperlink{classdomain_1_1RuralHouse_afdc9d7b70bcc6baa94cae033a5684f0e}{description}}
+\item 
+String \mbox{\hyperlink{classdomain_1_1RuralHouse_a4ac1bd1de58f97487abbcb8dc27a8077}{city}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 10 of file Rural\+House.\+java.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classdomain_1_1RuralHouse_a5e1f42ad6b3992bfc5fdece628455552}\label{classdomain_1_1RuralHouse_a5e1f42ad6b3992bfc5fdece628455552}} 
+\index{domain.RuralHouse@{domain.RuralHouse}!RuralHouse@{RuralHouse}}
+\index{RuralHouse@{RuralHouse}!domain.RuralHouse@{domain.RuralHouse}}
+\subsubsection{\texorpdfstring{RuralHouse()}{RuralHouse()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily domain.\+Rural\+House.\+Rural\+House (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 27 of file Rural\+House.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{28     \{}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \}}
+
+\end{DoxyCode}
+
+
+Referenced by domain.\+Rural\+House.\+equals().
+
+\mbox{\Hypertarget{classdomain_1_1RuralHouse_a1052cfcd781ddfbaf6d5516737e06bf0}\label{classdomain_1_1RuralHouse_a1052cfcd781ddfbaf6d5516737e06bf0}} 
+\index{domain.RuralHouse@{domain.RuralHouse}!RuralHouse@{RuralHouse}}
+\index{RuralHouse@{RuralHouse}!domain.RuralHouse@{domain.RuralHouse}}
+\subsubsection{\texorpdfstring{RuralHouse()}{RuralHouse()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily domain.\+Rural\+House.\+Rural\+House (\begin{DoxyParamCaption}\item[{String}]{description,  }\item[{String}]{city }\end{DoxyParamCaption})}
+
+
+
+Definition at line 32 of file Rural\+House.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{33     \{}
+\DoxyCodeLine{34         this.\mbox{\hyperlink{classdomain_1_1RuralHouse_afdc9d7b70bcc6baa94cae033a5684f0e}{description}} = \mbox{\hyperlink{classdomain_1_1RuralHouse_afdc9d7b70bcc6baa94cae033a5684f0e}{description}};}
+\DoxyCodeLine{35         this.\mbox{\hyperlink{classdomain_1_1RuralHouse_a4ac1bd1de58f97487abbcb8dc27a8077}{city}} = \mbox{\hyperlink{classdomain_1_1RuralHouse_a4ac1bd1de58f97487abbcb8dc27a8077}{city}};}
+\DoxyCodeLine{36         \mbox{\hyperlink{classdomain_1_1RuralHouse_ab96f0810763d7df5b3f38622850f941e}{offers}}=\textcolor{keyword}{new} HashSet<Offer>();}
+\DoxyCodeLine{37     \}}
+
+\end{DoxyCode}
+
+
+References domain.\+Rural\+House.\+city, domain.\+Rural\+House.\+description, and domain.\+Rural\+House.\+offers.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classdomain_1_1RuralHouse_a58e17e08a7b28a75bc1b8e3d6ac01764}\label{classdomain_1_1RuralHouse_a58e17e08a7b28a75bc1b8e3d6ac01764}} 
+\index{domain.RuralHouse@{domain.RuralHouse}!createOffer@{createOffer}}
+\index{createOffer@{createOffer}!domain.RuralHouse@{domain.RuralHouse}}
+\subsubsection{\texorpdfstring{createOffer()}{createOffer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classdomain_1_1Offer}{Offer}} domain.\+Rural\+House.\+create\+Offer (\begin{DoxyParamCaption}\item[{Date}]{first\+Day,  }\item[{Date}]{last\+Day,  }\item[{float}]{price }\end{DoxyParamCaption})}
+
+
+
+This method creates an offer with a house number, first day, last day and price. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em House} & number, start day, last day and price \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line 77 of file Rural\+House.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{78     \{}
+\DoxyCodeLine{79         \textcolor{comment}{//System.out.println("LLAMADA RuralHouse createOffer, offerNumber="+" firstDay="+firstDay+" lastDay="+lastDay+" price="+price);}}
+\DoxyCodeLine{80         Offer off=\textcolor{keyword}{new} Offer(firstDay,lastDay,price,\textcolor{keyword}{this});}
+\DoxyCodeLine{81         \mbox{\hyperlink{classdomain_1_1RuralHouse_ab96f0810763d7df5b3f38622850f941e}{offers}}.add(off);}
+\DoxyCodeLine{82         \textcolor{keywordflow}{return} off;}
+\DoxyCodeLine{83     \}}
+
+\end{DoxyCode}
+
+
+References domain.\+Rural\+House.\+offers.
+
+
+
+Referenced by data\+Access.\+Hibernate\+Data\+Access.\+create\+Offer().
+
+\mbox{\Hypertarget{classdomain_1_1RuralHouse_a92f3f1fa5d605f34e95f4e4175ef2629}\label{classdomain_1_1RuralHouse_a92f3f1fa5d605f34e95f4e4175ef2629}} 
+\index{domain.RuralHouse@{domain.RuralHouse}!equals@{equals}}
+\index{equals@{equals}!domain.RuralHouse@{domain.RuralHouse}}
+\subsubsection{\texorpdfstring{equals()}{equals()}}
+{\footnotesize\ttfamily boolean domain.\+Rural\+House.\+equals (\begin{DoxyParamCaption}\item[{Object}]{obj }\end{DoxyParamCaption})}
+
+
+
+Definition at line 102 of file Rural\+House.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{103     \{}
+\DoxyCodeLine{104         \mbox{\hyperlink{classdomain_1_1RuralHouse_a5e1f42ad6b3992bfc5fdece628455552}{RuralHouse}} other = (\mbox{\hyperlink{classdomain_1_1RuralHouse_a5e1f42ad6b3992bfc5fdece628455552}{RuralHouse}}) obj;}
+\DoxyCodeLine{105         \textcolor{keywordflow}{if} (\textcolor{keyword}{this} == obj)}
+\DoxyCodeLine{106           \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{107         \textcolor{keywordflow}{if} (obj == \textcolor{keyword}{null})}
+\DoxyCodeLine{108           \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{109         \textcolor{keywordflow}{if} (getClass() != obj.getClass())}
+\DoxyCodeLine{110           \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{111 \textcolor{comment}{//      if (houseNumber != other.houseNumber) // NO COMPARAR ASÍ ya que houseNumber NO ES "int" sino objeto de "java.lang.Integer"}}
+\DoxyCodeLine{112         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classdomain_1_1RuralHouse_a1168b2c788d2f3bca3c54eee3b8734cb}{houseNumber}}.equals(other.houseNumber))}
+\DoxyCodeLine{113           \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{114         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{115     \}}
+
+\end{DoxyCode}
+
+
+References domain.\+Rural\+House.\+house\+Number, and domain.\+Rural\+House.\+Rural\+House().
+
+\mbox{\Hypertarget{classdomain_1_1RuralHouse_a67a45aa0b441b32d455d58c4a42446f1}\label{classdomain_1_1RuralHouse_a67a45aa0b441b32d455d58c4a42446f1}} 
+\index{domain.RuralHouse@{domain.RuralHouse}!getCity@{getCity}}
+\index{getCity@{getCity}!domain.RuralHouse@{domain.RuralHouse}}
+\subsubsection{\texorpdfstring{getCity()}{getCity()}}
+{\footnotesize\ttfamily String domain.\+Rural\+House.\+get\+City (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 60 of file Rural\+House.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{61     \{}
+\DoxyCodeLine{62         \textcolor{keywordflow}{return} \mbox{\hyperlink{classdomain_1_1RuralHouse_a4ac1bd1de58f97487abbcb8dc27a8077}{city}};}
+\DoxyCodeLine{63     \}}
+
+\end{DoxyCode}
+
+
+References domain.\+Rural\+House.\+city.
+
+\mbox{\Hypertarget{classdomain_1_1RuralHouse_a21b3359aa62984046a4da490fe8895e1}\label{classdomain_1_1RuralHouse_a21b3359aa62984046a4da490fe8895e1}} 
+\index{domain.RuralHouse@{domain.RuralHouse}!getDescription@{getDescription}}
+\index{getDescription@{getDescription}!domain.RuralHouse@{domain.RuralHouse}}
+\subsubsection{\texorpdfstring{getDescription()}{getDescription()}}
+{\footnotesize\ttfamily String domain.\+Rural\+House.\+get\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 49 of file Rural\+House.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{50     \{}
+\DoxyCodeLine{51         \textcolor{keywordflow}{return} \mbox{\hyperlink{classdomain_1_1RuralHouse_afdc9d7b70bcc6baa94cae033a5684f0e}{description}};}
+\DoxyCodeLine{52     \}}
+
+\end{DoxyCode}
+
+
+References domain.\+Rural\+House.\+description.
+
+\mbox{\Hypertarget{classdomain_1_1RuralHouse_a849faba68dc8c0a71ed936bc509f5568}\label{classdomain_1_1RuralHouse_a849faba68dc8c0a71ed936bc509f5568}} 
+\index{domain.RuralHouse@{domain.RuralHouse}!getHouseNumber@{getHouseNumber}}
+\index{getHouseNumber@{getHouseNumber}!domain.RuralHouse@{domain.RuralHouse}}
+\subsubsection{\texorpdfstring{getHouseNumber()}{getHouseNumber()}}
+{\footnotesize\ttfamily Integer domain.\+Rural\+House.\+get\+House\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 39 of file Rural\+House.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{40     \{}
+\DoxyCodeLine{41         \textcolor{keywordflow}{return} \mbox{\hyperlink{classdomain_1_1RuralHouse_a1168b2c788d2f3bca3c54eee3b8734cb}{houseNumber}};}
+\DoxyCodeLine{42     \}}
+
+\end{DoxyCode}
+
+
+References domain.\+Rural\+House.\+house\+Number.
+
+
+
+Referenced by data\+Access.\+Hibernate\+Data\+Access.\+create\+Offer(), and data\+Access.\+Hibernate\+Data\+Access.\+get\+Offers().
+
+\mbox{\Hypertarget{classdomain_1_1RuralHouse_ab80c8a3e186714dfb11557b626ecfb1c}\label{classdomain_1_1RuralHouse_ab80c8a3e186714dfb11557b626ecfb1c}} 
+\index{domain.RuralHouse@{domain.RuralHouse}!getOffers@{getOffers}}
+\index{getOffers@{getOffers}!domain.RuralHouse@{domain.RuralHouse}}
+\subsubsection{\texorpdfstring{getOffers()}{getOffers()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Set$<$\mbox{\hyperlink{classdomain_1_1Offer}{Offer}}$>$ domain.\+Rural\+House.\+get\+Offers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 17 of file Rural\+House.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{18     \{}
+\DoxyCodeLine{19         \textcolor{keywordflow}{return} \mbox{\hyperlink{classdomain_1_1RuralHouse_ab96f0810763d7df5b3f38622850f941e}{offers}};}
+\DoxyCodeLine{20     \}}
+
+\end{DoxyCode}
+
+
+References domain.\+Rural\+House.\+offers.
+
+
+
+Referenced by data\+Access.\+Hibernate\+Data\+Access.\+get\+Offers().
+
+\mbox{\Hypertarget{classdomain_1_1RuralHouse_abe770c8a0fbcfed83a358d84bacd66f7}\label{classdomain_1_1RuralHouse_abe770c8a0fbcfed83a358d84bacd66f7}} 
+\index{domain.RuralHouse@{domain.RuralHouse}!getOffers@{getOffers}}
+\index{getOffers@{getOffers}!domain.RuralHouse@{domain.RuralHouse}}
+\subsubsection{\texorpdfstring{getOffers()}{getOffers()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Vector$<$\mbox{\hyperlink{classdomain_1_1Offer}{Offer}}$>$ domain.\+Rural\+House.\+get\+Offers (\begin{DoxyParamCaption}\item[{Date}]{first\+Day,  }\item[{Date}]{last\+Day }\end{DoxyParamCaption})}
+
+
+
+This method obtains available offers for a concrete house in a certain period. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em house\+Number,the} & house number where the offers must be obtained \\
+\hline
+{\em first\+Day,first} & day in a period range \\
+\hline
+{\em last\+Day,last} & day in a period range \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a Hash\+Set of offers(\+Offer class) available in this period 
+\end{DoxyReturn}
+
+
+Definition at line 125 of file Rural\+House.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{126     \{}
+\DoxyCodeLine{127         Vector<Offer> availableOffers=\textcolor{keyword}{new} Vector<Offer>();}
+\DoxyCodeLine{128         Iterator<Offer> e=\mbox{\hyperlink{classdomain_1_1RuralHouse_ab96f0810763d7df5b3f38622850f941e}{offers}}.iterator();}
+\DoxyCodeLine{129         Offer offer;}
+\DoxyCodeLine{130         \textcolor{keywordflow}{while} (e.hasNext())}
+\DoxyCodeLine{131         \{}
+\DoxyCodeLine{132             offer=e.next();}
+\DoxyCodeLine{133             \textcolor{keywordflow}{if} ( ((offer.getFirstDay().compareTo(firstDay) >= 0) \&\& (offer.getLastDay().compareTo(lastDay) <= 0)) \&\& (offer.getBook().equals(\textcolor{stringliteral}{"NO"}))) }
+\DoxyCodeLine{134             \{}
+\DoxyCodeLine{135                     availableOffers.add(offer);}
+\DoxyCodeLine{136             \}}
+\DoxyCodeLine{137         \}}
+\DoxyCodeLine{138         \textcolor{keywordflow}{return} availableOffers;}
+\DoxyCodeLine{139     \}}
+
+\end{DoxyCode}
+
+
+References domain.\+Offer.\+get\+Book(), domain.\+Offer.\+get\+First\+Day(), domain.\+Offer.\+get\+Last\+Day(), and domain.\+Rural\+House.\+offers.
+
+\mbox{\Hypertarget{classdomain_1_1RuralHouse_a23272d170821f464d6b07595303c283e}\label{classdomain_1_1RuralHouse_a23272d170821f464d6b07595303c283e}} 
+\index{domain.RuralHouse@{domain.RuralHouse}!hashCode@{hashCode}}
+\index{hashCode@{hashCode}!domain.RuralHouse@{domain.RuralHouse}}
+\subsubsection{\texorpdfstring{hashCode()}{hashCode()}}
+{\footnotesize\ttfamily int domain.\+Rural\+House.\+hash\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 87 of file Rural\+House.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{88     \{}
+\DoxyCodeLine{89         \textcolor{keyword}{final} \textcolor{keywordtype}{int} prime = 31;}
+\DoxyCodeLine{90         \textcolor{keywordtype}{int} result = 1;}
+\DoxyCodeLine{91         result = prime * result + \mbox{\hyperlink{classdomain_1_1RuralHouse_a1168b2c788d2f3bca3c54eee3b8734cb}{houseNumber}}.hashCode();}
+\DoxyCodeLine{92         \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{93     \}}
+
+\end{DoxyCode}
+
+
+References domain.\+Rural\+House.\+house\+Number.
+
+\mbox{\Hypertarget{classdomain_1_1RuralHouse_ac5596b06728d8bf377993088520fbc9e}\label{classdomain_1_1RuralHouse_ac5596b06728d8bf377993088520fbc9e}} 
+\index{domain.RuralHouse@{domain.RuralHouse}!overlapsWith@{overlapsWith}}
+\index{overlapsWith@{overlapsWith}!domain.RuralHouse@{domain.RuralHouse}}
+\subsubsection{\texorpdfstring{overlapsWith()}{overlapsWith()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classdomain_1_1Offer}{Offer}} domain.\+Rural\+House.\+overlaps\+With (\begin{DoxyParamCaption}\item[{Date}]{first\+Day,  }\item[{Date}]{last\+Day }\end{DoxyParamCaption})}
+
+
+
+This method obtains the first offer that overlaps with the provided dates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em first\+Day,first} & day in a period range \\
+\hline
+{\em last\+Day,last} & day in a period range \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the first offer that overlaps with those dates, or null if there is no overlapping offer 
+\end{DoxyReturn}
+
+
+Definition at line 150 of file Rural\+House.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{151     \{}
+\DoxyCodeLine{152         Iterator<Offer> e = \mbox{\hyperlink{classdomain_1_1RuralHouse_ab96f0810763d7df5b3f38622850f941e}{offers}}.iterator();}
+\DoxyCodeLine{153         Offer offer=\textcolor{keyword}{null};}
+\DoxyCodeLine{154         \textcolor{keywordflow}{while} (e.hasNext())}
+\DoxyCodeLine{155         \{}
+\DoxyCodeLine{156             offer=e.next();}
+\DoxyCodeLine{157             \textcolor{keywordflow}{if} ( (offer.getFirstDay().compareTo(lastDay)<0) \&\& (offer.getLastDay().compareTo(firstDay)>0))}
+\DoxyCodeLine{158                 \textcolor{keywordflow}{return} offer;}
+\DoxyCodeLine{159         \}}
+\DoxyCodeLine{160         \textcolor{keywordflow}{return} \textcolor{keyword}{null};}
+\DoxyCodeLine{161     \}}
+
+\end{DoxyCode}
+
+
+References domain.\+Offer.\+get\+First\+Day(), domain.\+Offer.\+get\+Last\+Day(), and domain.\+Rural\+House.\+offers.
+
+
+
+Referenced by data\+Access.\+Hibernate\+Data\+Access.\+exists\+Overlapping\+Offer().
+
+\mbox{\Hypertarget{classdomain_1_1RuralHouse_a04f87e3266ab2b0d9b42bb8f947d6172}\label{classdomain_1_1RuralHouse_a04f87e3266ab2b0d9b42bb8f947d6172}} 
+\index{domain.RuralHouse@{domain.RuralHouse}!setCity@{setCity}}
+\index{setCity@{setCity}!domain.RuralHouse@{domain.RuralHouse}}
+\subsubsection{\texorpdfstring{setCity()}{setCity()}}
+{\footnotesize\ttfamily void domain.\+Rural\+House.\+set\+City (\begin{DoxyParamCaption}\item[{String}]{city }\end{DoxyParamCaption})}
+
+
+
+Definition at line 65 of file Rural\+House.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{66     \{}
+\DoxyCodeLine{67         this.\mbox{\hyperlink{classdomain_1_1RuralHouse_a4ac1bd1de58f97487abbcb8dc27a8077}{city}}=\mbox{\hyperlink{classdomain_1_1RuralHouse_a4ac1bd1de58f97487abbcb8dc27a8077}{city}};}
+\DoxyCodeLine{68     \}}
+
+\end{DoxyCode}
+
+
+References domain.\+Rural\+House.\+city.
+
+\mbox{\Hypertarget{classdomain_1_1RuralHouse_aff9ad2c8f775b473256233e9c26456f1}\label{classdomain_1_1RuralHouse_aff9ad2c8f775b473256233e9c26456f1}} 
+\index{domain.RuralHouse@{domain.RuralHouse}!setDescription@{setDescription}}
+\index{setDescription@{setDescription}!domain.RuralHouse@{domain.RuralHouse}}
+\subsubsection{\texorpdfstring{setDescription()}{setDescription()}}
+{\footnotesize\ttfamily void domain.\+Rural\+House.\+set\+Description (\begin{DoxyParamCaption}\item[{String}]{description }\end{DoxyParamCaption})}
+
+
+
+Definition at line 54 of file Rural\+House.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{55     \{}
+\DoxyCodeLine{56         this.\mbox{\hyperlink{classdomain_1_1RuralHouse_afdc9d7b70bcc6baa94cae033a5684f0e}{description}}=\mbox{\hyperlink{classdomain_1_1RuralHouse_afdc9d7b70bcc6baa94cae033a5684f0e}{description}};}
+\DoxyCodeLine{57     \}}
+
+\end{DoxyCode}
+
+
+References domain.\+Rural\+House.\+description.
+
+\mbox{\Hypertarget{classdomain_1_1RuralHouse_afae7f7702581e18517472b1faa29273d}\label{classdomain_1_1RuralHouse_afae7f7702581e18517472b1faa29273d}} 
+\index{domain.RuralHouse@{domain.RuralHouse}!setHouseNumber@{setHouseNumber}}
+\index{setHouseNumber@{setHouseNumber}!domain.RuralHouse@{domain.RuralHouse}}
+\subsubsection{\texorpdfstring{setHouseNumber()}{setHouseNumber()}}
+{\footnotesize\ttfamily void domain.\+Rural\+House.\+set\+House\+Number (\begin{DoxyParamCaption}\item[{Integer}]{house\+Number }\end{DoxyParamCaption})}
+
+
+
+Definition at line 44 of file Rural\+House.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{45     \{}
+\DoxyCodeLine{46         this.\mbox{\hyperlink{classdomain_1_1RuralHouse_a1168b2c788d2f3bca3c54eee3b8734cb}{houseNumber}} = \mbox{\hyperlink{classdomain_1_1RuralHouse_a1168b2c788d2f3bca3c54eee3b8734cb}{houseNumber}};}
+\DoxyCodeLine{47     \}}
+
+\end{DoxyCode}
+
+
+References domain.\+Rural\+House.\+house\+Number.
+
+\mbox{\Hypertarget{classdomain_1_1RuralHouse_a240eebda76fe984b763e8eaa691f3c94}\label{classdomain_1_1RuralHouse_a240eebda76fe984b763e8eaa691f3c94}} 
+\index{domain.RuralHouse@{domain.RuralHouse}!setOffers@{setOffers}}
+\index{setOffers@{setOffers}!domain.RuralHouse@{domain.RuralHouse}}
+\subsubsection{\texorpdfstring{setOffers()}{setOffers()}}
+{\footnotesize\ttfamily void domain.\+Rural\+House.\+set\+Offers (\begin{DoxyParamCaption}\item[{Set$<$ \mbox{\hyperlink{classdomain_1_1Offer}{Offer}} $>$}]{offers }\end{DoxyParamCaption})}
+
+
+
+Definition at line 22 of file Rural\+House.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23     \{}
+\DoxyCodeLine{24         this.\mbox{\hyperlink{classdomain_1_1RuralHouse_ab96f0810763d7df5b3f38622850f941e}{offers}} = \mbox{\hyperlink{classdomain_1_1RuralHouse_ab96f0810763d7df5b3f38622850f941e}{offers}};}
+\DoxyCodeLine{25     \}}
+
+\end{DoxyCode}
+
+
+References domain.\+Rural\+House.\+offers.
+
+\mbox{\Hypertarget{classdomain_1_1RuralHouse_a2937650ac9e726b75be724d264fa1bee}\label{classdomain_1_1RuralHouse_a2937650ac9e726b75be724d264fa1bee}} 
+\index{domain.RuralHouse@{domain.RuralHouse}!toString@{toString}}
+\index{toString@{toString}!domain.RuralHouse@{domain.RuralHouse}}
+\subsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily String domain.\+Rural\+House.\+to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 96 of file Rural\+House.\+java.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{97     \{}
+\DoxyCodeLine{98         \textcolor{keywordflow}{return} this.\mbox{\hyperlink{classdomain_1_1RuralHouse_a1168b2c788d2f3bca3c54eee3b8734cb}{houseNumber}} + \textcolor{stringliteral}{": "} + this.\mbox{\hyperlink{classdomain_1_1RuralHouse_a4ac1bd1de58f97487abbcb8dc27a8077}{city}};}
+\DoxyCodeLine{99     \}}
+
+\end{DoxyCode}
+
+
+References domain.\+Rural\+House.\+city.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classdomain_1_1RuralHouse_a4ac1bd1de58f97487abbcb8dc27a8077}\label{classdomain_1_1RuralHouse_a4ac1bd1de58f97487abbcb8dc27a8077}} 
+\index{domain.RuralHouse@{domain.RuralHouse}!city@{city}}
+\index{city@{city}!domain.RuralHouse@{domain.RuralHouse}}
+\subsubsection{\texorpdfstring{city}{city}}
+{\footnotesize\ttfamily String domain.\+Rural\+House.\+city\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 14 of file Rural\+House.\+java.
+
+
+
+Referenced by domain.\+Rural\+House.\+get\+City(), domain.\+Rural\+House.\+Rural\+House(), domain.\+Rural\+House.\+set\+City(), and domain.\+Rural\+House.\+to\+String().
+
+\mbox{\Hypertarget{classdomain_1_1RuralHouse_afdc9d7b70bcc6baa94cae033a5684f0e}\label{classdomain_1_1RuralHouse_afdc9d7b70bcc6baa94cae033a5684f0e}} 
+\index{domain.RuralHouse@{domain.RuralHouse}!description@{description}}
+\index{description@{description}!domain.RuralHouse@{domain.RuralHouse}}
+\subsubsection{\texorpdfstring{description}{description}}
+{\footnotesize\ttfamily String domain.\+Rural\+House.\+description\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 13 of file Rural\+House.\+java.
+
+
+
+Referenced by domain.\+Rural\+House.\+get\+Description(), domain.\+Rural\+House.\+Rural\+House(), and domain.\+Rural\+House.\+set\+Description().
+
+\mbox{\Hypertarget{classdomain_1_1RuralHouse_a1168b2c788d2f3bca3c54eee3b8734cb}\label{classdomain_1_1RuralHouse_a1168b2c788d2f3bca3c54eee3b8734cb}} 
+\index{domain.RuralHouse@{domain.RuralHouse}!houseNumber@{houseNumber}}
+\index{houseNumber@{houseNumber}!domain.RuralHouse@{domain.RuralHouse}}
+\subsubsection{\texorpdfstring{houseNumber}{houseNumber}}
+{\footnotesize\ttfamily Integer domain.\+Rural\+House.\+house\+Number\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 12 of file Rural\+House.\+java.
+
+
+
+Referenced by domain.\+Rural\+House.\+equals(), domain.\+Rural\+House.\+get\+House\+Number(), domain.\+Rural\+House.\+hash\+Code(), and domain.\+Rural\+House.\+set\+House\+Number().
+
+\mbox{\Hypertarget{classdomain_1_1RuralHouse_ab96f0810763d7df5b3f38622850f941e}\label{classdomain_1_1RuralHouse_ab96f0810763d7df5b3f38622850f941e}} 
+\index{domain.RuralHouse@{domain.RuralHouse}!offers@{offers}}
+\index{offers@{offers}!domain.RuralHouse@{domain.RuralHouse}}
+\subsubsection{\texorpdfstring{offers}{offers}}
+{\footnotesize\ttfamily Set$<$\mbox{\hyperlink{classdomain_1_1Offer}{Offer}}$>$ domain.\+Rural\+House.\+offers}
+
+
+
+Definition at line 15 of file Rural\+House.\+java.
+
+
+
+Referenced by domain.\+Rural\+House.\+create\+Offer(), domain.\+Rural\+House.\+get\+Offers(), domain.\+Rural\+House.\+overlaps\+With(), domain.\+Rural\+House.\+Rural\+House(), and domain.\+Rural\+House.\+set\+Offers().
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/domain/\mbox{\hyperlink{RuralHouse_8java}{Rural\+House.\+java}}\end{DoxyCompactItemize}

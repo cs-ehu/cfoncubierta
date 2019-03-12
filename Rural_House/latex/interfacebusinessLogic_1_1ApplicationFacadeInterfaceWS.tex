@@ -1,0 +1,162 @@
+\hypertarget{interfacebusinessLogic_1_1ApplicationFacadeInterfaceWS}{}\section{business\+Logic.\+Application\+Facade\+Interface\+WS Interface Reference}
+\label{interfacebusinessLogic_1_1ApplicationFacadeInterfaceWS}\index{businessLogic.ApplicationFacadeInterfaceWS@{businessLogic.ApplicationFacadeInterfaceWS}}
+
+
+Inheritance diagram for business\+Logic.\+Application\+Facade\+Interface\+WS\+:
+% FIG 0
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdomain_1_1Offer}{Offer}} \mbox{\hyperlink{interfacebusinessLogic_1_1ApplicationFacadeInterfaceWS_a0e8d2135ef1384a32e74f60bcea55f09}{create\+Offer}} (\mbox{\hyperlink{classdomain_1_1RuralHouse}{Rural\+House}} rural\+House, Date first\+Day, Date last\+Day, float price)  throws Overlapping\+Offer\+Exists, Bad\+Dates
+\begin{DoxyCompactList}\small\item\em This method creates an offer with a house number, first day, last day and price. \end{DoxyCompactList}\item 
+Vector$<$ \mbox{\hyperlink{classdomain_1_1RuralHouse}{Rural\+House}} $>$ \mbox{\hyperlink{interfacebusinessLogic_1_1ApplicationFacadeInterfaceWS_a553cbfb37ea9f1621ba76ad8308a15da}{get\+All\+Rural\+Houses}} ()
+\begin{DoxyCompactList}\small\item\em This method creates a book with a corresponding parameters. \end{DoxyCompactList}\item 
+Vector$<$ \mbox{\hyperlink{classdomain_1_1Offer}{Offer}} $>$ \mbox{\hyperlink{interfacebusinessLogic_1_1ApplicationFacadeInterfaceWS_ae338a96d039003c64fceb68d667736f1}{get\+Offers}} (\mbox{\hyperlink{classdomain_1_1RuralHouse}{Rural\+House}} rh, Date first\+Day, Date last\+Day)
+\begin{DoxyCompactList}\small\item\em This method obtains the offers of a rural\+House in the provided dates. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{interfacebusinessLogic_1_1ApplicationFacadeInterfaceWS_a59eacfa5890466c6a338d0df2e487965}{initialize\+BD}} ()
+\item 
+void \mbox{\hyperlink{interfacebusinessLogic_1_1ApplicationFacadeInterfaceWS_a9f2916ad64674d13dbfbe58252e28531}{book\+Offer}} (\mbox{\hyperlink{classdomain_1_1Offer}{Offer}} book\+Offer)
+\item 
+boolean \mbox{\hyperlink{interfacebusinessLogic_1_1ApplicationFacadeInterfaceWS_aa56165d498ff54ccd651fe5ce9a50902}{coincide}} (\mbox{\hyperlink{classdomain_1_1RuralHouse}{Rural\+House}} house\+Code, Date first\+Day, Date last\+Day)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 16 of file Application\+Facade\+Interface\+W\+S.\+java.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{interfacebusinessLogic_1_1ApplicationFacadeInterfaceWS_a9f2916ad64674d13dbfbe58252e28531}\label{interfacebusinessLogic_1_1ApplicationFacadeInterfaceWS_a9f2916ad64674d13dbfbe58252e28531}} 
+\index{businessLogic.ApplicationFacadeInterfaceWS@{businessLogic.ApplicationFacadeInterfaceWS}!bookOffer@{bookOffer}}
+\index{bookOffer@{bookOffer}!businessLogic.ApplicationFacadeInterfaceWS@{businessLogic.ApplicationFacadeInterfaceWS}}
+\subsubsection{\texorpdfstring{bookOffer()}{bookOffer()}}
+{\footnotesize\ttfamily void business\+Logic.\+Application\+Facade\+Interface\+W\+S.\+book\+Offer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdomain_1_1Offer}{Offer}}}]{book\+Offer }\end{DoxyParamCaption})}
+
+
+
+Implemented in \mbox{\hyperlink{classbusinessLogic_1_1FacadeImplementationWS_a0c3a269d277719643ca61e030580812a}{business\+Logic.\+Facade\+Implementation\+WS}}.
+
+
+
+Referenced by bean.\+Query\+\_\+\+Bean.\+book().
+
+\mbox{\Hypertarget{interfacebusinessLogic_1_1ApplicationFacadeInterfaceWS_aa56165d498ff54ccd651fe5ce9a50902}\label{interfacebusinessLogic_1_1ApplicationFacadeInterfaceWS_aa56165d498ff54ccd651fe5ce9a50902}} 
+\index{businessLogic.ApplicationFacadeInterfaceWS@{businessLogic.ApplicationFacadeInterfaceWS}!coincide@{coincide}}
+\index{coincide@{coincide}!businessLogic.ApplicationFacadeInterfaceWS@{businessLogic.ApplicationFacadeInterfaceWS}}
+\subsubsection{\texorpdfstring{coincide()}{coincide()}}
+{\footnotesize\ttfamily boolean business\+Logic.\+Application\+Facade\+Interface\+W\+S.\+coincide (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdomain_1_1RuralHouse}{Rural\+House}}}]{house\+Code,  }\item[{Date}]{first\+Day,  }\item[{Date}]{last\+Day }\end{DoxyParamCaption})}
+
+
+
+Implemented in \mbox{\hyperlink{classbusinessLogic_1_1FacadeImplementationWS_a6e8399739161cbb6a2830ebb9279de90}{business\+Logic.\+Facade\+Implementation\+WS}}.
+
+
+
+Referenced by bean.\+Set\+\_\+\+Bean.\+create\+Offer().
+
+\mbox{\Hypertarget{interfacebusinessLogic_1_1ApplicationFacadeInterfaceWS_a0e8d2135ef1384a32e74f60bcea55f09}\label{interfacebusinessLogic_1_1ApplicationFacadeInterfaceWS_a0e8d2135ef1384a32e74f60bcea55f09}} 
+\index{businessLogic.ApplicationFacadeInterfaceWS@{businessLogic.ApplicationFacadeInterfaceWS}!createOffer@{createOffer}}
+\index{createOffer@{createOffer}!businessLogic.ApplicationFacadeInterfaceWS@{businessLogic.ApplicationFacadeInterfaceWS}}
+\subsubsection{\texorpdfstring{createOffer()}{createOffer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classdomain_1_1Offer}{Offer}} business\+Logic.\+Application\+Facade\+Interface\+W\+S.\+create\+Offer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdomain_1_1RuralHouse}{Rural\+House}}}]{rural\+House,  }\item[{Date}]{first\+Day,  }\item[{Date}]{last\+Day,  }\item[{float}]{price }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classexceptions_1_1OverlappingOfferExists}{Overlapping\+Offer\+Exists}}, \mbox{\hyperlink{classexceptions_1_1BadDates}{Bad\+Dates}}}
+
+
+
+This method creates an offer with a house number, first day, last day and price. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em House} & number, start day, last day and price \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classbusinessLogic_1_1FacadeImplementationWS_ac7b3bdfd0815ea7c787da312de594cce}{business\+Logic.\+Facade\+Implementation\+WS}}.
+
+
+
+Referenced by bean.\+Set\+\_\+\+Bean.\+create\+Offer().
+
+\mbox{\Hypertarget{interfacebusinessLogic_1_1ApplicationFacadeInterfaceWS_a553cbfb37ea9f1621ba76ad8308a15da}\label{interfacebusinessLogic_1_1ApplicationFacadeInterfaceWS_a553cbfb37ea9f1621ba76ad8308a15da}} 
+\index{businessLogic.ApplicationFacadeInterfaceWS@{businessLogic.ApplicationFacadeInterfaceWS}!getAllRuralHouses@{getAllRuralHouses}}
+\index{getAllRuralHouses@{getAllRuralHouses}!businessLogic.ApplicationFacadeInterfaceWS@{businessLogic.ApplicationFacadeInterfaceWS}}
+\subsubsection{\texorpdfstring{getAllRuralHouses()}{getAllRuralHouses()}}
+{\footnotesize\ttfamily Vector$<$\mbox{\hyperlink{classdomain_1_1RuralHouse}{Rural\+House}}$>$ business\+Logic.\+Application\+Facade\+Interface\+W\+S.\+get\+All\+Rural\+Houses (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This method creates a book with a corresponding parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em First} & day, last day, house number and telephone \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a book\+This method retrieves the existing rural houses
+
+a Set of rural houses 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classbusinessLogic_1_1FacadeImplementationWS_aa6f21ddb40ca6cd752a13e31ff016e7e}{business\+Logic.\+Facade\+Implementation\+WS}}.
+
+
+
+Referenced by bean.\+Initialize.\+main(), bean.\+Query\+\_\+\+Bean.\+Query\+\_\+\+Bean(), and bean.\+Set\+\_\+\+Bean.\+Set\+\_\+\+Bean().
+
+\mbox{\Hypertarget{interfacebusinessLogic_1_1ApplicationFacadeInterfaceWS_ae338a96d039003c64fceb68d667736f1}\label{interfacebusinessLogic_1_1ApplicationFacadeInterfaceWS_ae338a96d039003c64fceb68d667736f1}} 
+\index{businessLogic.ApplicationFacadeInterfaceWS@{businessLogic.ApplicationFacadeInterfaceWS}!getOffers@{getOffers}}
+\index{getOffers@{getOffers}!businessLogic.ApplicationFacadeInterfaceWS@{businessLogic.ApplicationFacadeInterfaceWS}}
+\subsubsection{\texorpdfstring{getOffers()}{getOffers()}}
+{\footnotesize\ttfamily Vector$<$\mbox{\hyperlink{classdomain_1_1Offer}{Offer}}$>$ business\+Logic.\+Application\+Facade\+Interface\+W\+S.\+get\+Offers (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classdomain_1_1RuralHouse}{Rural\+House}}}]{rh,  }\item[{Date}]{first\+Day,  }\item[{Date}]{last\+Day }\end{DoxyParamCaption})}
+
+
+
+This method obtains the offers of a rural\+House in the provided dates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rural\+House,the} & rural\+House to inspect \\
+\hline
+{\em first\+Day,first} & day in a period range \\
+\hline
+{\em last\+Day,last} & day in a period range \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the first offer that overlaps with those dates, or null if there is no overlapping offer 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classbusinessLogic_1_1FacadeImplementationWS_a7489fb15fdb8206b16daf6ed24fdfea0}{business\+Logic.\+Facade\+Implementation\+WS}}.
+
+
+
+Referenced by bean.\+Query\+\_\+\+Bean.\+search\+Offers().
+
+\mbox{\Hypertarget{interfacebusinessLogic_1_1ApplicationFacadeInterfaceWS_a59eacfa5890466c6a338d0df2e487965}\label{interfacebusinessLogic_1_1ApplicationFacadeInterfaceWS_a59eacfa5890466c6a338d0df2e487965}} 
+\index{businessLogic.ApplicationFacadeInterfaceWS@{businessLogic.ApplicationFacadeInterfaceWS}!initializeBD@{initializeBD}}
+\index{initializeBD@{initializeBD}!businessLogic.ApplicationFacadeInterfaceWS@{businessLogic.ApplicationFacadeInterfaceWS}}
+\subsubsection{\texorpdfstring{initializeBD()}{initializeBD()}}
+{\footnotesize\ttfamily void business\+Logic.\+Application\+Facade\+Interface\+W\+S.\+initialize\+BD (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Implemented in \mbox{\hyperlink{classbusinessLogic_1_1FacadeImplementationWS_a94a4600e9c80794676f06c888e9e682d}{business\+Logic.\+Facade\+Implementation\+WS}}.
+
+
+
+Referenced by bean.\+Initialize.\+main().
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/business\+Logic/\mbox{\hyperlink{ApplicationFacadeInterfaceWS_8java}{Application\+Facade\+Interface\+W\+S.\+java}}\end{DoxyCompactItemize}

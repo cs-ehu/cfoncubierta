@@ -1,0 +1,484 @@
+.TH "bean.Query_Bean" 3 "Tue Mar 12 2019" "Version 1" "Rural_House" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+bean.Query_Bean
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBOffer\fP \fBgetBookOffer\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetBookOffer\fP (\fBOffer\fP \fBbookOffer\fP)"
+.br
+.ti -1c
+.RI "\fBQuery_Bean\fP ()"
+.br
+.ti -1c
+.RI "Date \fBgetDay\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetDay\fP (Date \fBday\fP)"
+.br
+.ti -1c
+.RI "String \fBgetNumNights\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetNumNights\fP (String \fBnumNights\fP)"
+.br
+.ti -1c
+.RI "\fBRuralHouse\fP \fBgetHouseCode\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetHouseCode\fP (\fBRuralHouse\fP \fBhouseCode\fP)"
+.br
+.ti -1c
+.RI "List< \fBOffer\fP > \fBgetOffers\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetOffers\fP (List< \fBOffer\fP > \fBoffers\fP)"
+.br
+.ti -1c
+.RI "List< \fBRuralHouse\fP > \fBgetHouses\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetHouses\fP (List< \fBRuralHouse\fP > \fBhouses\fP)"
+.br
+.ti -1c
+.RI "void \fBonDateSelect\fP (SelectEvent event)"
+.br
+.ti -1c
+.RI "void \fBsearchOffers\fP ()"
+.br
+.ti -1c
+.RI "void \fBbook\fP ()"
+.br
+.ti -1c
+.RI "String \fBgetError\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetError\fP (String \fBerror\fP)"
+.br
+.ti -1c
+.RI "boolean \fBisShowError\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetShowError\fP (boolean \fBshowError\fP)"
+.br
+.ti -1c
+.RI "void \fBErrorFalse\fP ()"
+.br
+.ti -1c
+.RI "void \fBborrar\fP ()"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static \fBApplicationFacadeInterfaceWS\fP \fBfacadeBL\fP"
+.br
+.in -1c
+.SS "Package Attributes"
+
+.in +1c
+.ti -1c
+.RI "Date \fBday\fP"
+.br
+.ti -1c
+.RI "String \fBnumNights\fP"
+.br
+.ti -1c
+.RI "\fBRuralHouse\fP \fBhouseCode\fP"
+.br
+.ti -1c
+.RI "List< \fBOffer\fP > \fBoffers\fP"
+.br
+.ti -1c
+.RI "List< \fBRuralHouse\fP > \fBhouses\fP"
+.br
+.ti -1c
+.RI "\fBOffer\fP \fBbookOffer\fP"
+.br
+.ti -1c
+.RI "String \fBerror\fP"
+.br
+.ti -1c
+.RI "boolean \fBshowError\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 18 of file Query_Bean\&.java\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "bean\&.Query_Bean\&.Query_Bean ()"
+
+.PP
+Definition at line 42 of file Query_Bean\&.java\&.
+.PP
+.nf
+43     {
+44         facadeBL = Facade_Bean\&.getBusinessLogic();
+45         houses = facadeBL\&.getAllRuralHouses();
+46     }
+.fi
+.PP
+References bean\&.Query_Bean\&.facadeBL, businessLogic\&.ApplicationFacadeInterfaceWS\&.getAllRuralHouses(), bean\&.Facade_Bean\&.getBusinessLogic(), and bean\&.Query_Bean\&.houses\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void bean\&.Query_Bean\&.book ()"
+
+.PP
+Definition at line 134 of file Query_Bean\&.java\&.
+.PP
+.nf
+135     {
+136         try 
+137         {
+138             facadeBL\&.bookOffer(bookOffer);
+139             searchOffers();
+140             error = "Offer Booked";
+141             showError = true;
+142         } 
+143         catch (Exception ex) 
+144         {
+145             error = "No Offer Selected";
+146             showError = true;
+147         }
+148     }
+.fi
+.PP
+References bean\&.Query_Bean\&.bookOffer, businessLogic\&.ApplicationFacadeInterfaceWS\&.bookOffer(), bean\&.Query_Bean\&.error, bean\&.Query_Bean\&.facadeBL, bean\&.Query_Bean\&.searchOffers(), and bean\&.Query_Bean\&.showError\&.
+.SS "void bean\&.Query_Bean\&.borrar ()"
+
+.PP
+Definition at line 175 of file Query_Bean\&.java\&.
+.PP
+.nf
+176     {
+177         day = null;
+178         numNights = "";
+179         offers = null;
+180     }
+.fi
+.PP
+References bean\&.Query_Bean\&.day, bean\&.Query_Bean\&.numNights, and bean\&.Query_Bean\&.offers\&.
+.SS "void bean\&.Query_Bean\&.ErrorFalse ()"
+
+.PP
+Definition at line 170 of file Query_Bean\&.java\&.
+.PP
+.nf
+171     {
+172         showError = false;
+173     }
+.fi
+.PP
+References bean\&.Query_Bean\&.showError\&.
+.SS "\fBOffer\fP bean\&.Query_Bean\&.getBookOffer ()"
+
+.PP
+Definition at line 30 of file Query_Bean\&.java\&.
+.PP
+.nf
+31     {
+32         return bookOffer;
+33     }
+.fi
+.PP
+References bean\&.Query_Bean\&.bookOffer\&.
+.SS "Date bean\&.Query_Bean\&.getDay ()"
+
+.PP
+Definition at line 48 of file Query_Bean\&.java\&.
+.PP
+.nf
+49     {
+50         return day;
+51     }
+.fi
+.PP
+References bean\&.Query_Bean\&.day\&.
+.SS "String bean\&.Query_Bean\&.getError ()"
+
+.PP
+Definition at line 150 of file Query_Bean\&.java\&.
+.PP
+.nf
+151     {
+152         return error;
+153     }
+.fi
+.PP
+References bean\&.Query_Bean\&.error\&.
+.SS "\fBRuralHouse\fP bean\&.Query_Bean\&.getHouseCode ()"
+
+.PP
+Definition at line 68 of file Query_Bean\&.java\&.
+.PP
+.nf
+69     {
+70         return houseCode;
+71     }
+.fi
+.PP
+References bean\&.Query_Bean\&.houseCode\&.
+.SS "List<\fBRuralHouse\fP> bean\&.Query_Bean\&.getHouses ()"
+
+.PP
+Definition at line 88 of file Query_Bean\&.java\&.
+.PP
+.nf
+89     {
+90         return houses;
+91     }
+.fi
+.PP
+References bean\&.Query_Bean\&.houses\&.
+.SS "String bean\&.Query_Bean\&.getNumNights ()"
+
+.PP
+Definition at line 58 of file Query_Bean\&.java\&.
+.PP
+.nf
+59     {
+60         return numNights;
+61     }
+.fi
+.PP
+References bean\&.Query_Bean\&.numNights\&.
+.SS "List<\fBOffer\fP> bean\&.Query_Bean\&.getOffers ()"
+
+.PP
+Definition at line 78 of file Query_Bean\&.java\&.
+.PP
+.nf
+79     {
+80         return offers;
+81     }
+.fi
+.PP
+References bean\&.Query_Bean\&.offers\&.
+.SS "boolean bean\&.Query_Bean\&.isShowError ()"
+
+.PP
+Definition at line 160 of file Query_Bean\&.java\&.
+.PP
+.nf
+161     {
+162         return showError;
+163     }
+.fi
+.PP
+References bean\&.Query_Bean\&.showError\&.
+.SS "void bean\&.Query_Bean\&.onDateSelect (SelectEvent event)"
+
+.PP
+Definition at line 98 of file Query_Bean\&.java\&.
+.PP
+.nf
+99     {
+100         FacesContext facesContext = FacesContext\&.getCurrentInstance();
+101         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+102         facesContext\&.addMessage(null,
+103                 new FacesMessage(FacesMessage\&.SEVERITY_INFO, "Date Selected", format\&.format(event\&.getObject())));
+104     }
+.fi
+.SS "void bean\&.Query_Bean\&.searchOffers ()"
+
+.PP
+Definition at line 106 of file Query_Bean\&.java\&.
+.PP
+.nf
+107     {
+108         if (day != null) 
+109         {
+110             try 
+111             {
+112                 Calendar calendar = Calendar\&.getInstance();
+113                 calendar\&.setTime(day);
+114                 int numDays = Integer\&.parseInt(numNights);
+115                 calendar\&.add(Calendar\&.DATE, numDays);
+116                 Date lastDay = calendar\&.getTime();
+117                 offers = facadeBL\&.getOffers(houseCode, day, lastDay);
+118                 error = "Offer searched";
+119                 showError = true;
+120             } 
+121             catch (NumberFormatException e) 
+122             {
+123                 error = "Number of nights incorrect";
+124                 showError = true;
+125             }
+126         } 
+127         else 
+128         {
+129             error = "First Day != null";
+130             showError = true;
+131         }
+132     }
+.fi
+.PP
+References bean\&.Query_Bean\&.day, bean\&.Query_Bean\&.error, bean\&.Query_Bean\&.facadeBL, businessLogic\&.ApplicationFacadeInterfaceWS\&.getOffers(), bean\&.Query_Bean\&.houseCode, bean\&.Query_Bean\&.numNights, bean\&.Query_Bean\&.offers, and bean\&.Query_Bean\&.showError\&.
+.PP
+Referenced by bean\&.Query_Bean\&.book()\&.
+.SS "void bean\&.Query_Bean\&.setBookOffer (\fBOffer\fP bookOffer)"
+
+.PP
+Definition at line 35 of file Query_Bean\&.java\&.
+.PP
+.nf
+36     {
+37         this\&.bookOffer = bookOffer;
+38     }
+.fi
+.PP
+References bean\&.Query_Bean\&.bookOffer\&.
+.SS "void bean\&.Query_Bean\&.setDay (Date day)"
+
+.PP
+Definition at line 53 of file Query_Bean\&.java\&.
+.PP
+.nf
+54     {
+55         this\&.day = day;
+56     }
+.fi
+.PP
+References bean\&.Query_Bean\&.day\&.
+.SS "void bean\&.Query_Bean\&.setError (String error)"
+
+.PP
+Definition at line 155 of file Query_Bean\&.java\&.
+.PP
+.nf
+156     {
+157         this\&.error = error;
+158     }
+.fi
+.PP
+References bean\&.Query_Bean\&.error\&.
+.SS "void bean\&.Query_Bean\&.setHouseCode (\fBRuralHouse\fP houseCode)"
+
+.PP
+Definition at line 73 of file Query_Bean\&.java\&.
+.PP
+.nf
+74     {
+75         this\&.houseCode = houseCode;
+76     }
+.fi
+.PP
+References bean\&.Query_Bean\&.houseCode\&.
+.SS "void bean\&.Query_Bean\&.setHouses (List< \fBRuralHouse\fP > houses)"
+
+.PP
+Definition at line 93 of file Query_Bean\&.java\&.
+.PP
+.nf
+94     {
+95         this\&.houses = houses;
+96     }
+.fi
+.PP
+References bean\&.Query_Bean\&.houses\&.
+.SS "void bean\&.Query_Bean\&.setNumNights (String numNights)"
+
+.PP
+Definition at line 63 of file Query_Bean\&.java\&.
+.PP
+.nf
+64     {
+65         this\&.numNights = numNights;
+66     }
+.fi
+.PP
+References bean\&.Query_Bean\&.numNights\&.
+.SS "void bean\&.Query_Bean\&.setOffers (List< \fBOffer\fP > offers)"
+
+.PP
+Definition at line 83 of file Query_Bean\&.java\&.
+.PP
+.nf
+84     {
+85         this\&.offers = offers;
+86     }
+.fi
+.PP
+References bean\&.Query_Bean\&.offers\&.
+.SS "void bean\&.Query_Bean\&.setShowError (boolean showError)"
+
+.PP
+Definition at line 165 of file Query_Bean\&.java\&.
+.PP
+.nf
+166     {
+167         this\&.showError = showError;
+168     }
+.fi
+.PP
+References bean\&.Query_Bean\&.showError\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBOffer\fP bean\&.Query_Bean\&.bookOffer\fC [package]\fP"
+
+.PP
+Definition at line 26 of file Query_Bean\&.java\&.
+.PP
+Referenced by bean\&.Query_Bean\&.book(), bean\&.Query_Bean\&.getBookOffer(), and bean\&.Query_Bean\&.setBookOffer()\&.
+.SS "Date bean\&.Query_Bean\&.day\fC [package]\fP"
+
+.PP
+Definition at line 21 of file Query_Bean\&.java\&.
+.PP
+Referenced by bean\&.Query_Bean\&.borrar(), bean\&.Query_Bean\&.getDay(), bean\&.Query_Bean\&.searchOffers(), and bean\&.Query_Bean\&.setDay()\&.
+.SS "String bean\&.Query_Bean\&.error\fC [package]\fP"
+
+.PP
+Definition at line 27 of file Query_Bean\&.java\&.
+.PP
+Referenced by bean\&.Query_Bean\&.book(), bean\&.Query_Bean\&.getError(), bean\&.Query_Bean\&.searchOffers(), and bean\&.Query_Bean\&.setError()\&.
+.SS "\fBApplicationFacadeInterfaceWS\fP bean\&.Query_Bean\&.facadeBL\fC [static]\fP"
+
+.PP
+Definition at line 40 of file Query_Bean\&.java\&.
+.PP
+Referenced by bean\&.Query_Bean\&.book(), bean\&.Query_Bean\&.Query_Bean(), and bean\&.Query_Bean\&.searchOffers()\&.
+.SS "\fBRuralHouse\fP bean\&.Query_Bean\&.houseCode\fC [package]\fP"
+
+.PP
+Definition at line 23 of file Query_Bean\&.java\&.
+.PP
+Referenced by bean\&.Query_Bean\&.getHouseCode(), bean\&.Query_Bean\&.searchOffers(), and bean\&.Query_Bean\&.setHouseCode()\&.
+.SS "List<\fBRuralHouse\fP> bean\&.Query_Bean\&.houses\fC [package]\fP"
+
+.PP
+Definition at line 25 of file Query_Bean\&.java\&.
+.PP
+Referenced by bean\&.Query_Bean\&.getHouses(), bean\&.Query_Bean\&.Query_Bean(), and bean\&.Query_Bean\&.setHouses()\&.
+.SS "String bean\&.Query_Bean\&.numNights\fC [package]\fP"
+
+.PP
+Definition at line 22 of file Query_Bean\&.java\&.
+.PP
+Referenced by bean\&.Query_Bean\&.borrar(), bean\&.Query_Bean\&.getNumNights(), bean\&.Query_Bean\&.searchOffers(), and bean\&.Query_Bean\&.setNumNights()\&.
+.SS "List<\fBOffer\fP> bean\&.Query_Bean\&.offers\fC [package]\fP"
+
+.PP
+Definition at line 24 of file Query_Bean\&.java\&.
+.PP
+Referenced by bean\&.Query_Bean\&.borrar(), bean\&.Query_Bean\&.getOffers(), bean\&.Query_Bean\&.searchOffers(), and bean\&.Query_Bean\&.setOffers()\&.
+.SS "boolean bean\&.Query_Bean\&.showError\fC [package]\fP"
+
+.PP
+Definition at line 28 of file Query_Bean\&.java\&.
+.PP
+Referenced by bean\&.Query_Bean\&.book(), bean\&.Query_Bean\&.ErrorFalse(), bean\&.Query_Bean\&.isShowError(), bean\&.Query_Bean\&.searchOffers(), and bean\&.Query_Bean\&.setShowError()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Rural_House from the source code\&.
