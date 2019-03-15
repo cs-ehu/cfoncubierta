@@ -13,7 +13,8 @@ import javax.jws.WebMethod;
 import javax.jws.WebService;
 
 @WebService
-public interface ApplicationFacadeInterfaceWS {
+public interface ApplicationFacadeInterfaceWS 
+{
 
 	/**
 	 * This method creates an offer with a house number, first day, last day and

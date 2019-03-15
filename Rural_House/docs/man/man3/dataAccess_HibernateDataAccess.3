@@ -1,0 +1,201 @@
+.TH "dataAccess.HibernateDataAccess" 3 "Fri Mar 15 2019" "Version 1" "Rural_House" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+dataAccess.HibernateDataAccess
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBOffer\fP \fBcreateOffer\fP (\fBRuralHouse\fP ruralHouse, Date firstDay, Date lastDay, float price)"
+.br
+.ti -1c
+.RI "Vector< \fBRuralHouse\fP > \fBgetAllRuralHouses\fP ()"
+.br
+.ti -1c
+.RI "Vector< \fBOffer\fP > \fBgetOffers\fP (\fBRuralHouse\fP rh, Date firstDay, Date lastDay)"
+.br
+.ti -1c
+.RI "boolean \fBexistsOverlappingOffer\fP (\fBRuralHouse\fP rh, Date firstDay, Date lastDay)  throws OverlappingOfferExists  	"
+.br
+.ti -1c
+.RI "void \fBbookOffer\fP (\fBOffer\fP o)"
+.br
+.ti -1c
+.RI "boolean \fBcoincide\fP (\fBRuralHouse\fP houseCode, Date firstDay, Date lastDay)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 16 of file HibernateDataAccess\&.java\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void dataAccess\&.HibernateDataAccess\&.bookOffer (\fBOffer\fP o)"
+
+.PP
+Definition at line 87 of file HibernateDataAccess\&.java\&.
+.PP
+.nf
+88     {
+89         Session session = HibernateUtil\&.getSessionFactory()\&.getCurrentSession();
+90         session\&.beginTransaction();
+91         int offerNumber = o\&.getOfferNumber();
+92         session\&.createQuery("update Offer set book = 'YES' where offerNumber = '" + offerNumber + "'")\&.executeUpdate();
+93         session\&.getTransaction()\&.commit();
+94     }
+.fi
+.PP
+References domain\&.Offer\&.getOfferNumber(), and modelo\&.dominio\&.HibernateUtil\&.getSessionFactory()\&.
+.PP
+Referenced by businessLogic\&.FacadeImplementationWS\&.bookOffer()\&.
+.SS "boolean dataAccess\&.HibernateDataAccess\&.coincide (\fBRuralHouse\fP houseCode, Date firstDay, Date lastDay)"
+
+.PP
+Definition at line 96 of file HibernateDataAccess\&.java\&.
+.PP
+.nf
+97     {
+98         Session session = HibernateUtil\&.getSessionFactory()\&.getCurrentSession();
+99         session\&.beginTransaction();
+100         List<Offer> query = session\&.createQuery("from Offer where houseNumber='" + houseCode + "'")\&.list();
+101         int cont = 0;
+102         for (int i = 0; i < query\&.size(); i++) 
+103         {
+104             if (((firstDay\&.compareTo(query\&.get(i)\&.getFirstDay()) >= 0)
+105                     && (lastDay\&.compareTo(query\&.get(i)\&.getLastDay()) <= 0))
+106                     || ((firstDay\&.compareTo(query\&.get(i)\&.getFirstDay()) <= 0)
+107                             && (lastDay\&.compareTo(query\&.get(i)\&.getLastDay()) >= 0))
+108                     || ((firstDay\&.compareTo(query\&.get(i)\&.getFirstDay()) >= 0)
+109                             && (firstDay\&.compareTo(query\&.get(i)\&.getLastDay()) <= 0))) 
+110             {
+111                 cont++;
+112             }
+113         }
+114         if (cont > 0) 
+115         {
+116             session\&.getTransaction()\&.commit();
+117             return true;
+118         } 
+119         else 
+120         {
+121             session\&.getTransaction()\&.commit();
+122             return false;
+123         }
+124     }
+.fi
+.PP
+References modelo\&.dominio\&.HibernateUtil\&.getSessionFactory()\&.
+.PP
+Referenced by businessLogic\&.FacadeImplementationWS\&.coincide()\&.
+.SS "\fBOffer\fP dataAccess\&.HibernateDataAccess\&.createOffer (\fBRuralHouse\fP ruralHouse, Date firstDay, Date lastDay, float price)"
+
+.PP
+Definition at line 18 of file HibernateDataAccess\&.java\&.
+.PP
+.nf
+19     {
+20         Session session = HibernateUtil\&.getSessionFactory()\&.getCurrentSession();
+21         session\&.beginTransaction();
+22         try 
+23         {
+24             Integer houseCode = ruralHouse\&.getHouseNumber();
+25             List<RuralHouse> query = session\&.createQuery("from RuralHouse where houseNumber='" + houseCode + "'")
+26                     \&.list();
+27             RuralHouse rh = query\&.get(0);
+28             Offer o = rh\&.createOffer(firstDay, lastDay, price);
+29             session\&.save(o);
+30             session\&.getTransaction()\&.commit();
+31             return o;
+32         } 
+33         catch (Exception e) 
+34         {
+35             return null;
+36         }
+37     }
+.fi
+.PP
+References domain\&.RuralHouse\&.createOffer(), domain\&.RuralHouse\&.getHouseNumber(), and modelo\&.dominio\&.HibernateUtil\&.getSessionFactory()\&.
+.PP
+Referenced by businessLogic\&.FacadeImplementationWS\&.createOffer()\&.
+.SS "boolean dataAccess\&.HibernateDataAccess\&.existsOverlappingOffer (\fBRuralHouse\fP rh, Date firstDay, Date lastDay) throws \fBOverlappingOfferExists\fP"
+
+.PP
+Definition at line 67 of file HibernateDataAccess\&.java\&.
+.PP
+.nf
+68     {
+69         Session session = HibernateUtil\&.getSessionFactory()\&.getCurrentSession();
+70         session\&.beginTransaction();
+71         try 
+72         {
+73             Integer houseCode = rh\&.getHouseNumber();
+74             List<RuralHouse> query = session\&.createQuery("from RuralHouse where houseNumber='" + houseCode + "'")
+75                     \&.list();
+76             RuralHouse rhn = query\&.get(0);
+77             if (rhn\&.overlapsWith(firstDay, lastDay) != null)
+78                 return true;
+79         } 
+80         catch (Exception e) 
+81         {
+82             return true;
+83         }
+84         return false;
+85     }
+.fi
+.PP
+References modelo\&.dominio\&.HibernateUtil\&.getSessionFactory(), and domain\&.RuralHouse\&.overlapsWith()\&.
+.PP
+Referenced by businessLogic\&.FacadeImplementationWS\&.createOffer()\&.
+.SS "Vector<\fBRuralHouse\fP> dataAccess\&.HibernateDataAccess\&.getAllRuralHouses ()"
+
+.PP
+Definition at line 39 of file HibernateDataAccess\&.java\&.
+.PP
+.nf
+40     {
+41         Session session = HibernateUtil\&.getSessionFactory()\&.getCurrentSession();
+42         session\&.beginTransaction();
+43         Vector<RuralHouse> allRuralHouses = new Vector<RuralHouse>();
+44         @SuppressWarnings("unchecked")
+45         List<RuralHouse> query = session\&.createQuery("from RuralHouse")\&.list();
+46         session\&.getTransaction()\&.commit();
+47         Iterator<RuralHouse> i = query\&.iterator();
+48         while (i\&.hasNext()) 
+49         {
+50             allRuralHouses\&.add(i\&.next());
+51         }
+52         return allRuralHouses;
+53     }
+.fi
+.PP
+References modelo\&.dominio\&.HibernateUtil\&.getSessionFactory()\&.
+.PP
+Referenced by businessLogic\&.FacadeImplementationWS\&.getAllRuralHouses()\&.
+.SS "Vector<\fBOffer\fP> dataAccess\&.HibernateDataAccess\&.getOffers (\fBRuralHouse\fP rh, Date firstDay, Date lastDay)"
+
+.PP
+Definition at line 55 of file HibernateDataAccess\&.java\&.
+.PP
+.nf
+56     {
+57         Integer houseCode = rh\&.getHouseNumber();
+58         Session session = HibernateUtil\&.getSessionFactory()\&.getCurrentSession();
+59         session\&.beginTransaction();
+60         Vector<Offer> allOffers = new Vector<Offer>();
+61         List<RuralHouse> query = session\&.createQuery("from RuralHouse where houseNumber='" + houseCode + "'")\&.list();
+62         RuralHouse rh1 = (RuralHouse) query\&.get(0);
+63         allOffers = rh1\&.getOffers(firstDay, lastDay);
+64         return allOffers;
+65     }
+.fi
+.PP
+References domain\&.RuralHouse\&.getHouseNumber(), domain\&.RuralHouse\&.getOffers(), and modelo\&.dominio\&.HibernateUtil\&.getSessionFactory()\&.
+.PP
+Referenced by businessLogic\&.FacadeImplementationWS\&.getOffers()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Rural_House from the source code\&.

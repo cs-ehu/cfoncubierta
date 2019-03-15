@@ -13,12 +13,14 @@ import domain.RuralHouse;
 import exceptions.OverlappingOfferExists;
 import modelo.dominio.HibernateUtil;
 
-public class HibernateDataAccess {
-
-	public Offer createOffer(RuralHouse ruralHouse, Date firstDay, Date lastDay, float price) {
+public class HibernateDataAccess 
+{
+	public Offer createOffer(RuralHouse ruralHouse, Date firstDay, Date lastDay, float price) 
+	{
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
-		try {
+		try 
+		{
 			Integer houseCode = ruralHouse.getHouseNumber();
 			List<RuralHouse> query = session.createQuery("from RuralHouse where houseNumber='" + houseCode + "'")
 					.list();
@@ -27,13 +29,15 @@ public class HibernateDataAccess {
 			session.save(o);
 			session.getTransaction().commit();
 			return o;
-		} catch (Exception e) {
+		} 
+		catch (Exception e) 
+		{
 			return null;
 		}
-
 	}
 
-	public Vector<RuralHouse> getAllRuralHouses() {
+	public Vector<RuralHouse> getAllRuralHouses() 
+	{
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		Vector<RuralHouse> allRuralHouses = new Vector<RuralHouse>();
@@ -41,13 +45,15 @@ public class HibernateDataAccess {
 		List<RuralHouse> query = session.createQuery("from RuralHouse").list();
 		session.getTransaction().commit();
 		Iterator<RuralHouse> i = query.iterator();
-		while (i.hasNext()) {
+		while (i.hasNext()) 
+		{
 			allRuralHouses.add(i.next());
 		}
 		return allRuralHouses;
 	}
 
-	public Vector<Offer> getOffers(RuralHouse rh, Date firstDay, Date lastDay) {
+	public Vector<Offer> getOffers(RuralHouse rh, Date firstDay, Date lastDay) 
+	{
 		Integer houseCode = rh.getHouseNumber();
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
@@ -58,23 +64,28 @@ public class HibernateDataAccess {
 		return allOffers;
 	}
 
-	public boolean existsOverlappingOffer(RuralHouse rh, Date firstDay, Date lastDay) throws OverlappingOfferExists {
+	public boolean existsOverlappingOffer(RuralHouse rh, Date firstDay, Date lastDay) throws OverlappingOfferExists 
+	{
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
-		try {
+		try 
+		{
 			Integer houseCode = rh.getHouseNumber();
 			List<RuralHouse> query = session.createQuery("from RuralHouse where houseNumber='" + houseCode + "'")
 					.list();
 			RuralHouse rhn = query.get(0);
 			if (rhn.overlapsWith(firstDay, lastDay) != null)
 				return true;
-		} catch (Exception e) {
+		} 
+		catch (Exception e) 
+		{
 			return true;
 		}
 		return false;
 	}
 
-	public void bookOffer(Offer o) {
+	public void bookOffer(Offer o) 
+	{
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		int offerNumber = o.getOfferNumber();
@@ -82,25 +93,31 @@ public class HibernateDataAccess {
 		session.getTransaction().commit();
 	}
 
-	public boolean coincide(RuralHouse houseCode, Date firstDay, Date lastDay) {
+	public boolean coincide(RuralHouse houseCode, Date firstDay, Date lastDay) 
+	{
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		List<Offer> query = session.createQuery("from Offer where houseNumber='" + houseCode + "'").list();
 		int cont = 0;
-		for (int i = 0; i < query.size(); i++) {
+		for (int i = 0; i < query.size(); i++) 
+		{
 			if (((firstDay.compareTo(query.get(i).getFirstDay()) >= 0)
 					&& (lastDay.compareTo(query.get(i).getLastDay()) <= 0))
 					|| ((firstDay.compareTo(query.get(i).getFirstDay()) <= 0)
 							&& (lastDay.compareTo(query.get(i).getLastDay()) >= 0))
 					|| ((firstDay.compareTo(query.get(i).getFirstDay()) >= 0)
-							&& (firstDay.compareTo(query.get(i).getLastDay()) <= 0))) {
+							&& (firstDay.compareTo(query.get(i).getLastDay()) <= 0))) 
+			{
 				cont++;
 			}
 		}
-		if (cont > 0) {
+		if (cont > 0) 
+		{
 			session.getTransaction().commit();
 			return true;
-		} else {
+		} 
+		else 
+		{
 			session.getTransaction().commit();
 			return false;
 		}

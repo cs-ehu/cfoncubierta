@@ -7,60 +7,66 @@ import java.util.Set;
 import java.util.Vector;
 
 
-public class RuralHouse{
-
-	
+public class RuralHouse
+{
 	private Integer houseNumber;
 	private String description;
 	private String city; 
 	public Set<Offer> offers;
 	
-	
-	public Set<Offer> getOffers() {
+	public Set<Offer> getOffers() 
+	{
 		return offers;
 	}
 
-	public void setOffers(Set<Offer> offers) {
+	public void setOffers(Set<Offer> offers) 
+	{
 		this.offers = offers;
 	}
 
-	public RuralHouse() {
+	public RuralHouse() 
+	{
 
 	}
 
-	public RuralHouse(String description, String city) {
+	public RuralHouse(String description, String city) 
+	{
 		this.description = description;
 		this.city = city;
 		offers=new HashSet<Offer>();
 	}
 
-	public Integer getHouseNumber() {
+	public Integer getHouseNumber() 
+	{
 		return houseNumber;
 	}
 
-	public void setHouseNumber(Integer houseNumber) {
+	public void setHouseNumber(Integer houseNumber) 
+	{
 		this.houseNumber = houseNumber;
 	}
 
-	public String getDescription() {
+	public String getDescription() 
+	{
 		return description;
 	}
 	
-	public void setDescription(String description) {
+	public void setDescription(String description) 
+	{
 		this.description=description;
 	}
 
 	
-	public String getCity() {
+	public String getCity() 
+	{
 		return city;
 	}
 	
-	public void setCity(String city) {
+	public void setCity(String city) 
+	{
 		this.city=city;
 	}
 
-	
-		
 	/**
 	 * This method creates an offer with a house number, first day, last day and price
 	 * 
@@ -68,7 +74,8 @@ public class RuralHouse{
 	 *            number, start day, last day and price
 	 * @return None
 	 */
-	public Offer createOffer(Date firstDay, Date lastDay, float price)  {
+	public Offer createOffer(Date firstDay, Date lastDay, float price)  
+	{
         //System.out.println("LLAMADA RuralHouse createOffer, offerNumber="+" firstDay="+firstDay+" lastDay="+lastDay+" price="+price);
         Offer off=new Offer(firstDay,lastDay,price,this);
         offers.add(off);
@@ -77,8 +84,8 @@ public class RuralHouse{
 
 	
 	@Override
-	public int hashCode() {
-
+	public int hashCode() 
+	{
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + houseNumber.hashCode();
@@ -86,12 +93,14 @@ public class RuralHouse{
 	}
 
 	@Override
-	public String toString() {
+	public String toString() 
+	{
 		return this.houseNumber + ": " + this.city;
 	}
 
 	@Override
-	public boolean equals(Object obj) {
+	public boolean equals(Object obj) 
+	{
 		RuralHouse other = (RuralHouse) obj;
 		if (this == obj)
 		  return true;
@@ -113,20 +122,20 @@ public class RuralHouse{
 	 * @param lastDay, last day in a period range
 	 * @return a HashSet of offers(Offer class)  available  in this period
 	 */
-	public Vector<Offer> getOffers( Date firstDay,  Date lastDay) {
-		
+	public Vector<Offer> getOffers( Date firstDay,  Date lastDay) 
+	{
 		Vector<Offer> availableOffers=new Vector<Offer>();
 		Iterator<Offer> e=offers.iterator();
 		Offer offer;
-		while (e.hasNext()){
+		while (e.hasNext())
+		{
 			offer=e.next();
-			if ( ((offer.getFirstDay().compareTo(firstDay) >= 0) && (offer.getLastDay().compareTo(lastDay) <= 0)) && (offer.getBook().equals("NO"))) {
+			if ( ((offer.getFirstDay().compareTo(firstDay) >= 0) && (offer.getLastDay().compareTo(lastDay) <= 0)) && (offer.getBook().equals("NO"))) 
+			{
 					availableOffers.add(offer);
-
 			}
 		}
 		return availableOffers;
-		
 	}
 	
 	
@@ -138,17 +147,17 @@ public class RuralHouse{
 	 * @return the first offer that overlaps with those dates, or null if there is no overlapping offer
 	 */
 
-	public Offer overlapsWith( Date firstDay,  Date lastDay) {
-		
-		Iterator<Offer> e=offers.iterator();
+	public Offer overlapsWith( Date firstDay,  Date lastDay) 
+	{
+		Iterator<Offer> e = offers.iterator();
 		Offer offer=null;
-		while (e.hasNext()){
+		while (e.hasNext())
+		{
 			offer=e.next();
 			if ( (offer.getFirstDay().compareTo(lastDay)<0) && (offer.getLastDay().compareTo(firstDay)>0))
 				return offer;
 		}
 		return null;
-		
 	}
-
+	
 }

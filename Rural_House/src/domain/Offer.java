@@ -2,43 +2,46 @@ package domain;
 
 import java.util.Date;
 
-public class Offer{
-	
+public class Offer
+{
 	private Integer offerNumber;
 	private Date firstDay; // Dates are stored as java.util.Date objects instead of java.sql.Date objects
 	private Date lastDay;  // because, they are not well stored in db4o as java.util.Date objects
 	private float price;   // This is coherent because objects of java.sql.Date are objects of java.util.Date 
 	private String book;
+	private RuralHouse ruralHouse;
 	
-	
-	public String getBook() {
+	public String getBook() 
+	{
 		return book;
 	}
 
-	public void setBook(String book) {
+	public void setBook(String book) 
+	{
 		this.book = book;
 	}
 
-	private RuralHouse ruralHouse;
-
-	public Offer(){
-		
+	public Offer()
+	{
 		
 	}
 	
-	public Offer(Date firstDay, Date lastDay, float price, RuralHouse ruralHouse){
+	public Offer(Date firstDay, Date lastDay, float price, RuralHouse ruralHouse)
+	{
 		  this.firstDay = firstDay;
 		  this.lastDay = lastDay;
 		  this.price = price;
 		  this.ruralHouse = ruralHouse;
 		  this.book = "NO";
 	}
+	
 	/**
 	 * Get the house number of the offer
 	 * 
 	 * @return the house number
 	 */
-	public RuralHouse getRuralHouse() {
+	public RuralHouse getRuralHouse() 
+	{
 		return this.ruralHouse;
 	}
 
@@ -47,7 +50,8 @@ public class Offer{
 	 * 
 	 * @param house number
 	 */
-	public void setRuralHouse(RuralHouse ruralHouse) {
+	public void setRuralHouse(RuralHouse ruralHouse) 
+	{
 		this.ruralHouse = ruralHouse;
 	}
 
@@ -57,18 +61,18 @@ public class Offer{
 	 * 
 	 * @return offer number
 	 */
-	public int getOfferNumber() {
+	public int getOfferNumber() 
+	{
 		return this.offerNumber;
 	}
-
-	
 
 	/**
 	 * Get the first day of the offer
 	 * 
 	 * @return the first day
 	 */
-	public Date getFirstDay() {
+	public Date getFirstDay() 
+	{
 		return this.firstDay;
 	}
 
@@ -78,7 +82,8 @@ public class Offer{
 	 * @param firstDay
 	 *            The first day
 	 */
-	public void setFirstDay(Date firstDay) {
+	public void setFirstDay(Date firstDay) 
+	{
 		this.firstDay = firstDay;
 	}
 
@@ -87,7 +92,8 @@ public class Offer{
 	 * 
 	 * @return the last day
 	 */
-	public Date getLastDay() {
+	public Date getLastDay() 
+	{
 		return this.lastDay;
 	}
 
@@ -97,7 +103,8 @@ public class Offer{
 	 * @param lastDay
 	 *            The last day
 	 */
-	public void setLastDay(Date lastDay) {
+	public void setLastDay(Date lastDay) 
+	{
 		this.lastDay = lastDay;
 	}
 
@@ -106,7 +113,8 @@ public class Offer{
 	 * 
 	 * @return price
 	 */
-	public float getPrice() {
+	public float getPrice() 
+	{
 		return this.price;
 	}
 
@@ -115,11 +123,13 @@ public class Offer{
 	 * 
 	 * @param price
 	 */
-	public void setPrice(float price) {
+	public void setPrice(float price) 
+	{
 		this.price = price;
 	}
 	
-	public String toString(){
+	public String toString()
+	{
 		return offerNumber+";"+firstDay.toString()+";"+lastDay.toString()+";"+price;
 	}
 }
