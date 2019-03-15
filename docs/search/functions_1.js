@@ -1,5 +1,0 @@
-var searchData=
-[
-  ['coincide',['coincide',['../interfacebusinessLogic_1_1ApplicationFacadeInterfaceWS.html#aa56165d498ff54ccd651fe5ce9a50902',1,'businessLogic.ApplicationFacadeInterfaceWS.coincide()'],['../classbusinessLogic_1_1FacadeImplementationWS.html#a6e8399739161cbb6a2830ebb9279de90',1,'businessLogic.FacadeImplementationWS.coincide()'],['../classdataAccess_1_1HibernateDataAccess.html#a20de01b8c85e851ca310123cb7e6037d',1,'dataAccess.HibernateDataAccess.coincide()']]],
-  ['createoffer',['createOffer',['../classbean_1_1Set__Bean.html#a465bd2dc79465be5933720eadd23d137',1,'bean.Set_Bean.createOffer()'],['../interfacebusinessLogic_1_1ApplicationFacadeInterfaceWS.html#a0e8d2135ef1384a32e74f60bcea55f09',1,'businessLogic.ApplicationFacadeInterfaceWS.createOffer()'],['../classbusinessLogic_1_1FacadeImplementationWS.html#ac7b3bdfd0815ea7c787da312de594cce',1,'businessLogic.FacadeImplementationWS.createOffer()'],['../classdataAccess_1_1HibernateDataAccess.html#a2d226cc2032db6a4522fc6e172315480',1,'dataAccess.HibernateDataAccess.createOffer()'],['../classdomain_1_1RuralHouse.html#a58e17e08a7b28a75bc1b8e3d6ac01764',1,'domain.RuralHouse.createOffer()']]]
-];
